@@ -5,14 +5,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import org.acc.word2vec.core.Word2VecUtils;
 import org.deeplearning4j.models.word2vec.Word2Vec;
 
 import com.sun.jna.Native;
+
+import word2vec.core.Word2VecUtils;
+import word2vec.utils.ResuUtils;
+import word2vec.utils.WordUtil;
 
 public class EntryOfTheCode {
 

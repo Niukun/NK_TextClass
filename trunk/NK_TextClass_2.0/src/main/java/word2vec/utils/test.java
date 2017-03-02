@@ -1,4 +1,4 @@
-package org.acc.word2vec.util;
+package word2vec.utils;
 
 import java.math.BigDecimal;
 

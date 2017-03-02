@@ -1,4 +1,4 @@
-package org.acc.word2vec.util;
+package word2vec.utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -32,6 +32,39 @@ public class mergeFileUtils {
 		System.out.println("end");
 	}
 
+	private static int countFileWords(String string) {
+		int wordNum = 0;
+		StringBuilder sb = new StringBuilder();
+		String line = null;
+		try {
+			BufferedReader bufr = new BufferedReader(new FileReader(string));
+			BufferedWriter bufw = new BufferedWriter(new FileWriter("D:/NLPIR/paper/files/bigfile/bigfileWord.txt"));
+			while ((line = bufr.readLine()) != null) {
+				sb.append(line);
+			}
+			String str = sb.toString();
+			String[] strs = str.split(" ");
+			Set<String> set = new TreeSet<String>();
+			for (int i = 0; i < strs.length; i++) {
+				set.add(strs[i].trim().replaceAll("", ""));
+			}
+			Iterator<String> it = set.iterator();
+			while(it.hasNext()){
+				wordNum++;
+				bufw.write(it.next());
+				bufw.newLine();
+			}
+			bufw.flush();
+			bufw.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return wordNum;
+	}
+	
 	/**
 	 * 把指定目录下所有文件合并成一个文件，以bigfile.txt存在当前文件夹中
 	 * 递归处理，得到目录中所有的文本文件

@@ -1,4 +1,4 @@
-package org.acc.word2vec.util;
+package word2vec.utils;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;

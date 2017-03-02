@@ -1,4 +1,4 @@
-package org.acc.word2vec.text;
+package word2vec.text;
 
 import com.google.common.base.Strings;
 import org.deeplearning4j.text.tokenization.tokenizer.TokenPreProcess;

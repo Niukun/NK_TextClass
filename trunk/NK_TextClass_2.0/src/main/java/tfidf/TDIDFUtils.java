@@ -6,11 +6,10 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.acc.word2vec.util.mergeFileUtils;
-
 import com.sun.jna.Native;
 
 import nlpir.CLibrary;
+import word2vec.utils.mergeFileUtils;
 
 public class TDIDFUtils {
 	static List<File> fileList = new ArrayList<File>();// 用来存储指定目录下所有非目录文件

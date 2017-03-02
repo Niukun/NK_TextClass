@@ -1,4 +1,4 @@
-package org.acc.word2vec.demo;
+package word2vec.demo;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,8 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.acc.word2vec.core.Word2VecUtils;
 import org.deeplearning4j.models.word2vec.Word2Vec;
+
+import word2vec.core.Word2VecUtils;
 
 /**
  * Created by zhaoyy on 2016/12/19.

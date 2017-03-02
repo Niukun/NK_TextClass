@@ -1,7 +1,7 @@
-package org.acc.word2vec.demo;
+package word2vec.demo;
 
-import org.acc.word2vec.core.Word2VecUtils;
-import org.acc.word2vec.util.TextUtils;
+import word2vec.core.Word2VecUtils;
+import word2vec.utils.TextUtils;
 
 import java.io.File;
 import java.nio.charset.Charset;

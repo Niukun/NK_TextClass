@@ -1,4 +1,4 @@
-package org.acc.word2vec.core;
+package word2vec.core;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,9 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.acc.word2vec.text.AnsjTokenizerFactory;
-import org.acc.word2vec.text.ChineseTokenPreProcess;
-import org.acc.word2vec.util.RegexUtils;
 import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
 import org.deeplearning4j.models.word2vec.Word2Vec;
 import org.deeplearning4j.text.sentenceiterator.CollectionSentenceIterator;
@@ -27,6 +24,9 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 
 import lombok.NonNull;
+import word2vec.text.AnsjTokenizerFactory;
+import word2vec.text.ChineseTokenPreProcess;
+import word2vec.utils.RegexUtils;
 
 /**
  * Created by zhaoyy on 2016/12/19.

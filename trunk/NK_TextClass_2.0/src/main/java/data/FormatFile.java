@@ -2,7 +2,7 @@ package data;
 
 import java.io.File;
 
-import org.acc.word2vec.util.Normalize;
+import word2vec.utils.Normalize;
 
 public class FormatFile {
 

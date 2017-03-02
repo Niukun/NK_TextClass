@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.acc.word2vec.core.Word2VecUtils;
 import org.deeplearning4j.models.word2vec.Word2Vec;
 
 import com.sun.jna.Native;
@@ -19,6 +18,9 @@ import com.sun.jna.Native;
 import data.keyWords;
 import tfidf.src.org.akgul.MutableInt;
 import tfidf.src.org.akgul.TfIdf;
+import word2vec.core.Word2VecUtils;
+import word2vec.utils.ResuUtils;
+import word2vec.utils.WordUtil;
 
 public class EntryOfTheCode2017 {
 

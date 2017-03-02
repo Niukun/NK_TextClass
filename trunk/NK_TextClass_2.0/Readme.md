@@ -12,7 +12,7 @@
 
 2、实验数据整理
 第一步：data/FileToLine.java:生成每个类别文件的txt，使其每一行对应一个文件
-第二步：data/FormatFile.java:预处理
+第二步：data/FormatFile.java:预处理(移除停用词)
 第三部：data/SegmentDoc.java:分词
 第四步：demo/FitDemo.java:生成词向量
 第五步：nlpir/EntryOfTheCode2017.java:进行实验，得到准确率

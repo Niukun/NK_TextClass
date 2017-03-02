@@ -12,17 +12,19 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Normalize {
-	private static List<String> signList = new ArrayList<String>();
+	private static List<String> stopWordsList = new ArrayList<String>();
 	public static void main(String[] args) throws Exception {
-//		System.out.println("start");
-//		Process("D:/NLPIR/sougou/big/0214/0214_sougou_bigfile");
-//		System.out.println("end");
+		System.out.println("start");
+		long start = System.currentTimeMillis();
+		Process("C:/D/NLPIR/paper/files/merge/noNormalize_noSegment/noNormalize_noSegmentseg");
+		System.out.println("end");
+		System.out.println((System.currentTimeMillis()-start)/60000.0);
 	}
 	
 	static{
-		//加载stopSign文件，得到一个list
+		//加载stopWords文件，得到一个list
 		try {
-			BufferedReader signBufr = new BufferedReader(new FileReader("source/stopSigns"));
+			BufferedReader signBufr = new BufferedReader(new FileReader("source/stopWords"));
 			Set<String> signSet = new HashSet<String>();
 			String signStr = "";
 			int num = 0;
@@ -33,52 +35,59 @@ public class Normalize {
 			Iterator iter = signSet.iterator();
 			while(iter.hasNext()){
 				signStr = (String) iter.next();
-				signList.add( signStr );
+				stopWordsList.add( signStr );
 			}
-			System.out.println("stopSign长度：" + num);
-			System.out.println("signList长度：" + signList.size());
+			System.out.println("stopWordsList长度：" + stopWordsList.size());
 			
 			
 		} catch (Exception e) {
-			System.out.println("stopSign配置文件加载出错。。。");
+			System.out.println("stopWordsList配置文件加载出错。。。");
 			e.printStackTrace();
 		}
 	}
 
 	/**
 	 * 精确到文件名，但是不带后缀
+	 * 移除停用词
 	 * @param pathWithFileName
 	 * @throws Exception
 	 */
 	public static void Process(String pathWithFileName) throws Exception {
 		BufferedReader bufr = new BufferedReader(new FileReader(pathWithFileName + ".txt"));
-		BufferedWriter bufw = new BufferedWriter(new FileWriter(pathWithFileName + "Normalized.txt"));
+		BufferedWriter bufw = new BufferedWriter(new FileWriter(pathWithFileName + "stopWordsRemoved.txt"));
 		Set<String> strSet = new TreeSet<String>();
 		
+		//移除停用词
 		String str = "";
 		while((str=bufr.readLine())!=null){
-			for (int i = 0; i < signList.size(); i++) {
-				str = str.replace(signList.get(i), " ");
+			for (int i = 0; i < stopWordsList.size(); i++) {
+				str = str.replace(stopWordsList.get(i), "");
 			}
-			str = str.replaceAll("[a-zA-Z]{1,2}", " ");
-			str = str.replaceAll("[0-9]{1,40}", " ");
-			str = str.replaceAll(" 年", " ");
-			str = str.replaceAll(" 月", " ");
-			str = str.replaceAll(" 日", " ");
-			str = str.replaceAll(" 转", " ");
+			str = str.replaceAll("[a-zA-Z]{1,}", " ").trim();
 			while(str.contains("  ")){
-				str = str.replace("  ", " ");
-			}
-			str = str.replaceAll("\t", " ");
-			str = str.toLowerCase();
-			strSet.add(str.trim());
+			str = str.replace("  ", " ");
 		}
-		Iterator iter = strSet.iterator();
-		while(iter.hasNext()){
-			bufw.write((String)iter.next());
+			bufw.write(str);
 			bufw.newLine();
 			bufw.flush();
+//			str = str.replaceAll("[0-9]{1,40}", " ");
+//			str = str.replaceAll(" 年", " ");
+//			str = str.replaceAll(" 月", " ");
+//			str = str.replaceAll(" 日", " ");
+//			str = str.replaceAll(" 转", " ");
+//			while(str.contains("  ")){
+//				str = str.replace("  ", " ");
+//			}
+//			str = str.replaceAll("/t", " ");
+//			str = str.toLowerCase();
+//			strSet.add(str.trim());
 		}
+//		Iterator iter = strSet.iterator();
+//		while(iter.hasNext()){
+//			bufw.write((String)iter.next());
+//			bufw.newLine();
+//			bufw.flush();
+//		}
 		
 		bufw.close();
 		bufr.close();
@@ -95,8 +104,8 @@ public class Normalize {
 		
 		String str = "";
 		while((str=bufr.readLine())!=null){
-			for (int i = 0; i < signList.size(); i++) {
-				str = str.replace(signList.get(i), " ");
+			for (int i = 0; i < stopWordsList.size(); i++) {
+				str = str.replace(stopWordsList.get(i), " ");
 			}
 //			str = str.replaceAll("[a-zA-Z]{1,2}", " ");
 //			str = str.replaceAll("[0-9]{1,40}", " ");
@@ -111,7 +120,7 @@ public class Normalize {
 				str = str.replace("  ", " ");
 			}
 			str = str.replaceAll("\t", " ");
-			str = str.toLowerCase();
+//			str = str.toLowerCase();
 			strSet.add(str.trim());
 		}
 		Iterator iter = strSet.iterator();

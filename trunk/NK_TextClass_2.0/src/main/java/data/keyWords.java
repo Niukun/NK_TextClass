@@ -21,8 +21,10 @@ import tfidf.src.org.akgul.TfIdf;
 
 public class keyWords {
 	private static List<String> allDocuments = new ArrayList<String>();
+	
 	private static BufferedWriter bufwidf;
 	private static BufferedWriter bufwtf;
+	
 	private static Map<String, Double> idfmap;
 	private static Map<String, MutableInt> tfmap ;
 	
@@ -41,8 +43,8 @@ public class keyWords {
 
 	static {
 		List<String> dataPaths = new ArrayList<String>();
-		dataPaths.add("C:/D/NLPIR/paper/files/test/Normalize/seg/");
-		dataPaths.add("C:/D/NLPIR/paper/files/train/Normalize/seg/");
+		dataPaths.add("C:/D/NLPIR/paper/files/test/seg/Normalize/");
+		dataPaths.add("C:/D/NLPIR/paper/files/train/seg/Normalize/");
 		System.out.println("get allDocuments...");
 		try {
 			//在类加载的时候读取文件集合
@@ -107,6 +109,7 @@ public class keyWords {
 
 	/*
 	 * 对所有文件进行操作，得到排序的tfidf值，然后按照指定的数量存储到文件中
+	 * 
 	 */
 	private static void getSortedTFIDFAndSave(int wordsNum) throws IOException {
 		bufwtf = new BufferedWriter(new FileWriter(new File("C:/D/NLPIR/paper/files/tfidf.txt")));
@@ -194,6 +197,8 @@ public class keyWords {
 			}
 
 		});
+		
+		
 		int num = 0;
 		for (Map.Entry<String, Double> mapping : list) {
 			if (num++ < wordsNum) {
@@ -241,7 +246,7 @@ public class keyWords {
 			}
 		}
 		System.out.println("Document count is : " + count);
-		System.out.println("'allDocuments' is prepared,size is : " + allDocuments.size());
+		System.out.println("allDocuments is prepared,size is : " + allDocuments.size());
 	}
 
 }

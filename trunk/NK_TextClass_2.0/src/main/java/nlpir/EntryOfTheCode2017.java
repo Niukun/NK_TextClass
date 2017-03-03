@@ -11,14 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.deeplearning4j.models.embeddings.loader.WordVectorSerializer;
 import org.deeplearning4j.models.word2vec.Word2Vec;
 
 import com.sun.jna.Native;
 
 import data.keyWords;
 import tfidf.src.org.akgul.MutableInt;
-import tfidf.src.org.akgul.TfIdf;
-import word2vec.core.Word2VecUtils;
 import word2vec.utils.ResuUtils;
 import word2vec.utils.WordUtil;
 
@@ -34,7 +33,7 @@ public class EntryOfTheCode2017 {
 	private static BufferedWriter bufwtf;
 	private static Map<String, Double> idfmap;
 	private static Map<String, MutableInt> tfmap;
-	private static int keyWordsNum = 17;
+	private static int keyWordsNum = 20;
 	private static BigDecimal big0 = new BigDecimal(0.0);
 
 	// 初始化
@@ -48,11 +47,7 @@ public class EntryOfTheCode2017 {
 		}
 		// 词向量模型加载
 		long start = System.currentTimeMillis();
-		try {
-			word2Vec = Word2VecUtils.restore("C:/D/NLPIR/paper/files/vec/LittleNormalize/LittleNormalize.bin");
-		} catch (FileNotFoundException e) {
-			System.out.println("模型加载失败...");
-		}
+		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/Normal/NormalVector.txt");
 		System.out.println("加载模型使用时间：" + (System.currentTimeMillis() - start));
 
 		// tfidf模块准备，得到idf值
@@ -77,57 +72,39 @@ public class EntryOfTheCode2017 {
 	}
 
 	private static void test() throws IOException {
-		System.out.println("文化正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/culture.txt", "文化", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("教育正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/education.txt", "教育", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("娱乐正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/entertainment.txt", "娱乐", keyWordsNum)
-						* 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
 				+ "%");
-		System.out.println("历史正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/history.txt", "历史", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/history.txt", WordUtil.classes[3], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("互联正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/it.txt", "互联网", keyWordsNum) * 100) + "%");
-		System.out.println("军事正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/military.txt", "军事", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("阅读正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/reading.txt", "阅读", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("犯罪正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/test/Normalize/seg/society&law.txt", "犯罪", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
 				+ "%");
 		
 	}
 
 	public static void train() throws IOException{
-		System.out.println("文化正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/culture.txt", "文化", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("教育正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/education.txt", "教育", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("娱乐正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/entertainment.txt", "娱乐", keyWordsNum)
-						* 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
 				+ "%");
-		System.out.println("历史正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/history.txt", "历史", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/history.txt",WordUtil.classes[3], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("互联正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/it.txt", "互联网", keyWordsNum) * 100) + "%");
-		System.out.println("军事正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/military.txt", "军事", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("阅读正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/reading.txt", "阅读", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
 				+ "%");
-		System.out.println("犯罪正确率："
-				+ (getCorrectNum("C:/D/NLPIR/paper/files/train/Normalize/seg/society&law.txt", "犯罪", keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
 				+ "%");
 	}
 	
@@ -146,7 +123,7 @@ public class EntryOfTheCode2017 {
 			WordUtil wu = new WordUtil();
 			strs = keyWords.getSortedKeyWords(list.get(index), keyNum);//使用tfidf抽取关键字
 			tfmap = keyWords.getTfmap();
-			// System.out.println();//为方便打印关键字换行
+//			System.out.println();//为方便打印关键字换行
 			for (int i = 0; i < strs.length; i++) {// 对于每个关键字
 				if (strs[i] != null) {// 如果不是null，和不同类别计算距离
 					// 1 得到关键字最近的分类，和与该类的距离
@@ -204,14 +181,16 @@ public class EntryOfTheCode2017 {
 		re.temp = big0;
 		re.c = classes[0];
 		for (int i = 0; i < classes.length; i++) {
-			BigDecimal distince = calcWordsDistance(str, classes[i]);
+			if(word2Vec.hasWord(str)&&word2Vec.hasWord(classes[i])){
+			BigDecimal distince = new BigDecimal(word2Vec.similarity(str, classes[i])) ;
+//			BigDecimal distince = calcWordsDistance(str, classes[i]);
 			// 找出离该词最近的分类和距离
 			if (distince.subtract(re.temp).compareTo(big0)>=0) {
 				re.temp = distince;
 				re.c = classes[i];
-			}
+			}}
 		}
-//		System.out.println(str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
+//		System.out.println("关键词 "+str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
 		return re;
 	}
 
@@ -253,9 +232,9 @@ public class EntryOfTheCode2017 {
 	 * @return
 	 */
 	public static String[] getClassWords() {
-		String[] strs = { "文化", "教育", "娱乐", "历史", "互联网", "军事", "阅读", "犯罪" };
+//		String[] strs = { "文化", "教育", "娱乐", "历史", "互联网", "武器", "阅读", "犯罪" };
 
-		return strs;
+		return WordUtil.classes;
 	}
 
 	/**

@@ -23,15 +23,19 @@ public class SegmentDoc {
 	public static void main(String[] args) {
 		
 		
-//		segFile("C:/D/NLPIR/paper/files/test/Normalize/");
-//		segFile("C:/D/NLPIR/paper/files/train/Normalize/");
-		segFile("C:/D/NLPIR/paper/files/merge/tensite_5/");
+		segFile("C:/D/NLPIR/paper/files/test/");
+		segFile("C:/D/NLPIR/paper/files/train/");
+//		segFile("C:/D/NLPIR/paper/files/merge/tensite_5/");
 		
 		
 		instance.NLPIR_Exit();
 		System.out.println("end...");
 	}
 
+	/**
+	 * 不递归，只处理目录下txt文件
+	 * @param dataPath
+	 */
 	private static void segFile(String dataPath) {
 		File file = new File(dataPath);
 		File segFile = new File(dataPath + "/seg/");

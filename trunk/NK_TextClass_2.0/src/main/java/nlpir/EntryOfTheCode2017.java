@@ -50,7 +50,7 @@ public class EntryOfTheCode2017 {
 		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/Normal/NormalVector.txt");
 		System.out.println("加载模型使用时间：" + (System.currentTimeMillis() - start));
 
-		// tfidf模块准备，得到idf值
+		// tfidf模块准备，得到idfmap和所有分类文档
 		try {
 			keyWords kw = new keyWords();
 			idfmap = kw.getIdfmap();
@@ -178,8 +178,8 @@ public class EntryOfTheCode2017 {
 	public static ResuUtils getWordsClassDistance(String str) {
 		String[] classes = getClassWords();
 		ResuUtils re = new ResuUtils();
-		re.temp = big0;
-		re.c = classes[0];
+		// re.temp = big0;
+		// re.c = classes[0];
 		for (int i = 0; i < classes.length; i++) {
 			if(word2Vec.hasWord(str)&&word2Vec.hasWord(classes[i])){
 			BigDecimal distince = new BigDecimal(word2Vec.similarity(str, classes[i])) ;
@@ -188,7 +188,8 @@ public class EntryOfTheCode2017 {
 			if (distince.subtract(re.temp).compareTo(big0)>=0) {
 				re.temp = distince;
 				re.c = classes[i];
-			}}
+				}
+			}
 		}
 //		System.out.println("关键词 "+str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
 		return re;

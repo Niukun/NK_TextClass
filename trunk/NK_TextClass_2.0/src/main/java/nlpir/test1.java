@@ -14,8 +14,8 @@ public class test1 {
 	public static void main(String[] args) throws Exception {
 		System.out.println("start");
 		long start = System.currentTimeMillis();
-		String str = "asdf 54(delete)5445qwerqwer";
-		System.out.println(str.replaceAll("[\\(][^\\(\\)]+[\\)]", ""));
+		String str = "　　□王小熊";
+		System.out.println(str.length());
 		System.out.println("end");
 		System.out.println((System.currentTimeMillis()-start)/60000.0);
 	}

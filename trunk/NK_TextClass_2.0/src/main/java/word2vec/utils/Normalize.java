@@ -101,11 +101,14 @@ public class Normalize {
 				}
 			}
 			str = str.replaceAll("[a-zA-Z]{1,}", " ").trim();
+			while (str.contains("　")) {
+				str = str.replace("　", " ");
 			}
 			while (str.contains("  ")) {
 				str = str.replace("  ", " ");
 			}
 			str = str.replaceAll("\t", "");
+			strSet.add(str.replaceAll("\\(", "").replaceAll("\\+", "").replaceAll("\\*", "").replaceAll("\\.", "").replaceAll("\\?", "").replaceAll("\\[", "").replaceAll("\\{", "").replaceAll("\\+", "").trim());
 		}
 		Iterator iter = strSet.iterator();
 		while (iter.hasNext()) {

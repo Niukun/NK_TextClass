@@ -14,25 +14,8 @@ public class test1 {
 	public static void main(String[] args) throws Exception {
 		System.out.println("start");
 		long start = System.currentTimeMillis();
-		
-		String str = "a bb bb c bb c";
-		System.out.println(str.replaceAll(" bb ", " "));
-		str = str.replaceAll(" bb ", " ");
-		System.out.println(str.replaceAll(" bb ", " "));
-		
-		// 要验证的字符串
-	    // 正则表达式规则
-	    String regEx = " bb ";
-	    // 编译正则表达式
-	    Pattern pattern = Pattern.compile(regEx);
-	    // 忽略大小写的写法
-	    // Pattern pat = Pattern.compile(regEx, Pattern.CASE_INSENSITIVE);
-	    Matcher matcher = pattern.matcher(str);
-	    while(matcher.find()){
-	    	str = str.replaceAll(regEx, " ");
-	    }
-	    System.out.println(str);
-		
+		String str = "asdf 54(delete)5445qwerqwer";
+		System.out.println(str.replaceAll("[\\(][^\\(\\)]+[\\)]", ""));
 		System.out.println("end");
 		System.out.println((System.currentTimeMillis()-start)/60000.0);
 	}

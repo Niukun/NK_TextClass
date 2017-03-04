@@ -47,7 +47,7 @@ public class EntryOfTheCode2017 {
 		}
 		// 词向量模型加载
 		long start = System.currentTimeMillis();
-		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/Normal/NormalVector.txt");
+		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteVector.txt");
 		System.out.println("加载模型使用时间：" + (System.currentTimeMillis() - start));
 
 		// tfidf模块准备，得到idfmap和所有分类文档
@@ -67,8 +67,8 @@ public class EntryOfTheCode2017 {
 	public static void main(String[] args) throws IOException {
 		System.out.println("---------test---------");
 		test();
-		System.out.println("--------train---------");
-		train();
+//		System.out.println("--------train---------");
+//		train();
 	}
 
 	private static void test() throws IOException {
@@ -138,7 +138,6 @@ public class EntryOfTheCode2017 {
 									.multiply(new BigDecimal(tf * idf)));
 						}
 					}
-
 				}
 			}
 
@@ -178,8 +177,6 @@ public class EntryOfTheCode2017 {
 	public static ResuUtils getWordsClassDistance(String str) {
 		String[] classes = getClassWords();
 		ResuUtils re = new ResuUtils();
-		// re.temp = big0;
-		// re.c = classes[0];
 		for (int i = 0; i < classes.length; i++) {
 			if(word2Vec.hasWord(str)&&word2Vec.hasWord(classes[i])){
 			BigDecimal distince = new BigDecimal(word2Vec.similarity(str, classes[i])) ;
@@ -196,6 +193,7 @@ public class EntryOfTheCode2017 {
 	}
 
 	// 计算两个字符串的cos值
+	@Deprecated
 	public static BigDecimal calcWordsDistance(String string, String string2) {
 		double[] ds1 = word2Vec.getWordVector(string);
 		double[] ds2 = word2Vec.getWordVector(string2);

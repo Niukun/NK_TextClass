@@ -9,7 +9,7 @@ public class FormatFile {
 	public static void main(String[] args) throws Exception {
 		long start = System.currentTimeMillis();
 		getFileNormalized("C:/D/NLPIR/paper/files/test/seg/");
-		getFileNormalized("C:/D/NLPIR/paper/files/train/seg");
+		getFileNormalized("C:/D/NLPIR/paper/files/train/seg/");
 		System.out.println("end...");
 		System.out.println("Time is : " + ((System.currentTimeMillis() - start )/60000) + " min");
 	}
@@ -26,5 +26,4 @@ public class FormatFile {
 			}
 		}
 	}
-
 }

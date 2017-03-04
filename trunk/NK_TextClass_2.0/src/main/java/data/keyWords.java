@@ -100,8 +100,8 @@ public class keyWords {
 		System.out.println("getSortedTFIDFAndSave...");
 		getSortedTFIDFAndSave(15);
 		
-		System.out.println("TF Save...");
-		getSortedKeyWords(allDocuments.get(3) ,15);
+//		System.out.println("TF Save...");
+//		getSortedKeyWords(allDocuments.get(3) ,15);
 
 		System.out.println("end...");
 

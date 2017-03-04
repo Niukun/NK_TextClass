@@ -100,11 +100,12 @@ public class Normalize {
 					str = str.replace(stopWordsList.get(i), " ");
 				}
 			}
-			str = str.replaceAll("[a-zA-Z]{1,}", " ").trim().replaceAll("  ", " ");
+			str = str.replaceAll("[a-zA-Z]{1,}", " ").trim();
+			}
 			while (str.contains("  ")) {
 				str = str.replace("  ", " ");
 			}
-			strSet.add(str);
+			str = str.replaceAll("\t", "");
 		}
 		Iterator iter = strSet.iterator();
 		while (iter.hasNext()) {

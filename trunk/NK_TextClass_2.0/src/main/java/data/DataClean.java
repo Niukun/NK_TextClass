@@ -14,25 +14,30 @@ public class DataClean {
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("start...");
-		cleanCulture("C:/D/NLPIR/paper/files/test/culture/");
-		cleanEducation("C:/D/NLPIR/paper/files/test/education/");
-		cleanEntertainment("C:/D/NLPIR/paper/files/test/entertainment/");
-		cleanHistory("C:/D/NLPIR/paper/files/test/history/");
-		cleanIT("C:/D/NLPIR/paper/files/test/it/");
-		cleanMilitary("C:/D/NLPIR/paper/files/test/military/");
-		cleanReading("C:/D/NLPIR/paper/files/test/reading/");
-		cleanSocietylaw("C:/D/NLPIR/paper/files/test/society&law/");
+		System.out.println("test........................");
+		cleanCulture("C:/D/NLPIR/paper/files/test/culture/","C:/D/NLPIR/paper/files/testnum/culture/");
+		cleanEducation("C:/D/NLPIR/paper/files/test/education/","C:/D/NLPIR/paper/files/testnum/education/");
+		cleanEntertainment("C:/D/NLPIR/paper/files/test/entertainment/","C:/D/NLPIR/paper/files/testnum/entertainment/");
+		cleanHistory("C:/D/NLPIR/paper/files/test/history/","C:/D/NLPIR/paper/files/testnum/history/");
+		cleanIT("C:/D/NLPIR/paper/files/test/it/","C:/D/NLPIR/paper/files/testnum/it/");
+		cleanMilitary("C:/D/NLPIR/paper/files/test/military/","C:/D/NLPIR/paper/files/testnum/military/");
+		cleanReading("C:/D/NLPIR/paper/files/test/reading/","C:/D/NLPIR/paper/files/testnum/reading/");
+		cleanSocietylaw("C:/D/NLPIR/paper/files/test/society&law/","C:/D/NLPIR/paper/files/testnum/society&law/");
+		
+//		System.out.println("train.......................");
+		
+		
 		System.out.println("end....");
 	}
 
 
-	private static void cleanSocietylaw(String path) throws Exception{
+	private static void cleanSocietylaw(String path,String distPath) throws Exception{
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("BigNews")) {
 				} else if (line.contains("【】")) {
@@ -70,13 +75,13 @@ public class DataClean {
 	}
 
 
-	private static void cleanReading(String path) throws Exception{
+	private static void cleanReading(String path,String distPath) throws Exception{
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("BigNews")) {
 				} else if (line.contains("中国新闻出版报-网")) {
@@ -110,19 +115,23 @@ public class DataClean {
 
 	}
 
-	private static void cleanMilitary(String path) throws Exception {
+	private static void cleanMilitary(String path,String distPath) throws Exception {
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("BigNews")) {
 				} else if (line.contains("专题回顾：")) {
 				} else if (line.contains("更多精彩内容")) {
 				} else if (line.contains("更多内容阅读")) {
 				} else if (line.contains("专题回顾：")) {
+				} else if (line.contains("下一页")) {
+				} else if (line.contains("后一页")) {
+				} else if (line.contains("前一页")) {
+				} else if (line.contains("上一页")) {
 				} else if (line.contains("【】")) {
 				} else if (line.contains("■")) {
 				} else if (line.contains("更多关于")) {
@@ -148,13 +157,13 @@ public class DataClean {
 
 	}
 
-	private static void cleanIT(String path) throws Exception {
+	private static void cleanIT(String path,String distPath) throws Exception {
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("联系电话：")) {
 				} else if (line.contains("地址：")) {
@@ -186,13 +195,13 @@ public class DataClean {
 
 	}
 
-	private static void cleanHistory(String path) throws Exception {
+	private static void cleanHistory(String path,String distPath) throws Exception {
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("责任编辑")) {
 				} else if (line.contains("实用：签证")) {
@@ -202,6 +211,7 @@ public class DataClean {
 				} else if (line.contains("前一页")) {
 				} else if (line.contains("下一页")) {
 				} else if (line.contains("后一页")) {
+				} else if (line.contains("商讯凤凰资讯凤凰图片")) {
 				} else if (line.contains("【发表评论")) {
 				} else if (line.contains("百年前越南华人生活实")) {
 				} else if (line.contains("美地理杂志上清末旧影")) {
@@ -239,13 +249,13 @@ public class DataClean {
 
 	}
 
-	private static void cleanEntertainment(String path) throws Exception {
+	private static void cleanEntertainment(String path,String distPath) throws Exception {
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("责任编辑")) {
 				} else if (line.contains("实用：签证")) {
@@ -282,14 +292,14 @@ public class DataClean {
 
 	}
 
-	private static void cleanEducation(String path) throws Exception {
+	private static void cleanEducation(String path,String distPath) throws Exception {
 
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("责任编辑")) {
 				} else if (line.contains("实用：签证")) {
@@ -322,18 +332,20 @@ public class DataClean {
 		}
 	}
 
-	private static void cleanCulture(String path) throws Exception {
+	private static void cleanCulture(String path,String distPath) throws Exception {
 		File file = new File(path);
 		File[] files = file.listFiles();
 		String line = null;
 		for (int i = 0; i < files.length; i++) {
 			bufr = new BufferedReader(new FileReader(files[i]));
-			bufw = new BufferedWriter(new FileWriter(new File(path + i + ".txt")));
+			bufw = new BufferedWriter(new FileWriter(new File(distPath + i + ".txt")));
 			while ((line = bufr.readLine()) != null) {
 				if (line.contains("【大中小】")) {
 				} else if (line.contains("所有评论仅代表网友意见")) {
 				} else if (line.contains("经书面授权")) {
 				} else if (line.contains("资料图片")) {
+				} else if (line.contains("《沈从文全集》")) {
+				} else if (line.contains(":《")) {
 				} else if (line.contains("发布时间")) {
 				} else if (line.contains("不代表本网观点")) {
 				} else if (line.contains("后一页")) {

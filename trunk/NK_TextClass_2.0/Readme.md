@@ -27,7 +27,7 @@
 2.26：调整参数提高准确率  
 2.27：开始写大小论文  (失败)
 		
-**4、我的进度（持续更新）： ** 
+## 4、我的进度（持续更新）： ##
 2017/02/25  
 今天上午完成关键词提取的功能  
 	
@@ -51,4 +51,4 @@ mallet数据导入和主题建模，能够得到一个分类的关键词
 NLPIR官网：http://ictclas.nlpir.org/  
 NLPIR github:https://github.com/NLPIR-team/NLPIR  
 NLPIR使用教程：http://www.cnblogs.com/wukongjiuwo/p/4092480.html  
-	
+deeplearning4j_word2vec:https://deeplearning4j.org/cn/word2vec

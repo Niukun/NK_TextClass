@@ -22,11 +22,17 @@ public class SegmentDoc {
 	}
 	public static void main(String[] args) {
 		
+		System.out.println("start...");
+//		segFile("C:/D/NLPIR/paper/files/testnum/");
+//		segFile("C:/D/NLPIR/paper/files/trainnum/");
 		
-		segFile("C:/D/NLPIR/paper/files/test/");
-		segFile("C:/D/NLPIR/paper/files/train/");
-//		segFile("C:/D/NLPIR/paper/files/merge/tensite_5/");
 		
+		//mallet主题建模数据处理、
+		File file = new File("C:/D/mallet/classes/");
+		File[] files = file.listFiles();
+		for (int i = 0; i < files.length; i++) {
+			segFile(files[i].getAbsolutePath());
+		}
 		
 		instance.NLPIR_Exit();
 		System.out.println("end...");
@@ -44,7 +50,7 @@ public class SegmentDoc {
 		for (File f : files) {
 			if(!f.isDirectory()){
 				instance.NLPIR_FileProcess(f.getAbsolutePath(), segFile.getAbsolutePath()+"/"+f.getName(), 0);
-				System.out.println(f.getName() + ":分词完成...");
+//				System.out.println(f.getName() + ":分词完成...");
 			}
 		}
 	}

@@ -33,7 +33,7 @@ public class EntryOfTheCode2017 {
 	private static BufferedWriter bufwtf;
 	private static Map<String, Double> idfmap;
 	private static Map<String, MutableInt> tfmap;
-	private static int keyWordsNum = 20;
+	private static int keyWordsNum = 5;
 	private static BigDecimal big0 = new BigDecimal(0.0);
 
 	// 初始化
@@ -47,7 +47,8 @@ public class EntryOfTheCode2017 {
 		}
 		// 词向量模型加载
 		long start = System.currentTimeMillis();
-		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteVector.txt");
+		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/clean3.0/clean3.0_50_2.txt");
+//		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteVector_200_1.txt");
 		System.out.println("加载模型使用时间：" + (System.currentTimeMillis() - start));
 
 		// tfidf模块准备，得到idfmap和所有分类文档
@@ -64,47 +65,67 @@ public class EntryOfTheCode2017 {
 
 	}
 
-	public static void main(String[] args) throws IOException {
-		System.out.println("---------test---------");
-		test();
-//		System.out.println("--------train---------");
+	public static void main(String[] args) throws Exception {
+//		test();
+//		System.out.println();
+//		System.out.println();
 //		train();
+		all();
+	}
+
+	private static void all() throws Exception {
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
+				+ "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
+				+ "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
+				+ "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt", WordUtil.classes[3], keyWordsNum) * 100)
+				+ "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
+				+ "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
+				+ "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
+				+ "%");
+		
 	}
 
 	private static void test() throws IOException {
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/history.txt", WordUtil.classes[3], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/history.txt", WordUtil.classes[3], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/test/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
 				+ "%");
 		
 	}
 
 	public static void train() throws IOException{
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/history.txt",WordUtil.classes[3], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",WordUtil.classes[3], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
 				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/train/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
 				+ "%");
 	}
 	

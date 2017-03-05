@@ -12,12 +12,14 @@
 
 ## 2、实验数据整理   ##
 重要一步：预先处理要分类的文件  
+第〇步：data/DataClean.java:去除无用的信息  
 
 第一步：data/FileToLine.java:生成每个类别文件的txt，使其每一行对应一个文件  
 第二步：data/SegmentDoc.java:分词  
 第三步：data/FormatFile.java:移除停用词  
-第四步：demo/FitDemo.java:生成词向量  
-第五步：nlpir/EntryOfTheCode2017.java:进行实验，得到准确率  
+第四步：utils/mergeFileUtils.java:合并生成语料文件
+第五步：demo/FitDemo.java:生成词向量  
+第六步：nlpir/EntryOfTheCode2017.java:进行实验，得到准确率  
 
 其中：data/keyWords.java:获取每个文档的tf、tfidf值（工具类）  
 
@@ -42,7 +44,7 @@ mallet数据导入和主题建模，能够得到一个分类的关键词
 
 2017/03/05  
 准备完成：  
-早上完成数据清洗工作，跑一边代码看准确率情况  
+早上完成数据清洗工作，跑一遍代码看准确率情况  
 使用mallet将处理好的数据导入进来生成主题词汇，用来作为分类标签  
 实际完成：  
 夜间得到sohusite_tensite、sohusite、tensite的200维1次迭代的词向量  

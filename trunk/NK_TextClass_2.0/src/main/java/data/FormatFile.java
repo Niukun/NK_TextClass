@@ -8,8 +8,20 @@ public class FormatFile {
 
 	public static void main(String[] args) throws Exception {
 		long start = System.currentTimeMillis();
-		getFileNormalized("C:/D/NLPIR/paper/files/test/seg/");
-		getFileNormalized("C:/D/NLPIR/paper/files/train/seg/");
+//		getFileNormalized("C:/D/NLPIR/paper/files/testnum/seg/");
+//		getFileNormalized("C:/D/NLPIR/paper/files/trainnum/seg/");
+		
+//		主题建模相关
+		getFileNormalized("C:/D/mallet/classes/culture/seg/");
+		getFileNormalized("C:/D/mallet/classes/education/seg/");
+		getFileNormalized("C:/D/mallet/classes/entertainment/seg/");
+		getFileNormalized("C:/D/mallet/classes/history/seg/");
+		getFileNormalized("C:/D/mallet/classes/it/seg/");
+		getFileNormalized("C:/D/mallet/classes/military/seg/");
+		getFileNormalized("C:/D/mallet/classes/reading/seg/");
+		getFileNormalized("C:/D/mallet/classes/society&law/seg/");
+		
+		
 		System.out.println("end...");
 		System.out.println("Time is : " + ((System.currentTimeMillis() - start )/60000) + " min");
 	}

@@ -43,8 +43,9 @@ public class keyWords {
 
 	static {
 		List<String> dataPaths = new ArrayList<String>();
-		dataPaths.add("C:/D/NLPIR/paper/files/test/seg/Normalize/");
-		dataPaths.add("C:/D/NLPIR/paper/files/train/seg/Normalize/");
+//		dataPaths.add("C:/D/NLPIR/paper/files/testnum/seg/Normalize/");
+//		dataPaths.add("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/");
+		dataPaths.add("C:/D/NLPIR/paper/files/all/");
 		System.out.println("get allDocuments...");
 		try {
 			//在类加载的时候读取文件集合

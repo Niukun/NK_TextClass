@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -33,13 +34,22 @@ public class EntryOfTheCode2017 {
 	private static BufferedWriter bufwtf;
 	private static Map<String, Double> idfmap;
 	private static Map<String, MutableInt> tfmap;
-	private static int keyWordsNum = 5;
+	private static int keyWordsNum = 10;
 	private static BigDecimal big0 = new BigDecimal(0.0);
+	private static BigDecimal big1 = new BigDecimal(-1.0);
+	static int errorNum = 0;
 
+	private static BufferedWriter bufww;
 	// 初始化
 	static {
 		// 分词模块初始化
 		int init_flag = instance.NLPIR_Init("", 1, "0");
+		try {
+			bufww = new BufferedWriter(new FileWriter(new File("c:/d/result.txt")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String resultString = null;
 		if (0 == init_flag) {
 			resultString = instance.NLPIR_GetLastErrorMsg();
@@ -47,8 +57,9 @@ public class EntryOfTheCode2017 {
 		}
 		// 词向量模型加载
 		long start = System.currentTimeMillis();
-		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/clean3.0/clean3.0_50_2.txt");
-//		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteVector_200_1.txt");
+		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/clean3.0/clean3.0_200_1.txt");
+		// word2Vec =
+		// WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteVector_100_1.txt");
 		System.out.println("加载模型使用时间：" + (System.currentTimeMillis() - start));
 
 		// tfidf模块准备，得到idfmap和所有分类文档
@@ -56,80 +67,98 @@ public class EntryOfTheCode2017 {
 			keyWords kw = new keyWords();
 			idfmap = kw.getIdfmap();
 			allDocuments = kw.getAllDocuments();
-			System.out.println("idf map size:"+ idfmap.size());
+			System.out.println("idf map size:" + idfmap.size());
 		} catch (IOException e1) {
 			System.out.println("New keyWords() error...");
 			// e1.printStackTrace();
 		}
 
-
 	}
 
 	public static void main(String[] args) throws Exception {
-//		test();
-//		System.out.println();
-//		System.out.println();
-//		train();
+		// test();
+		// System.out.println();
+		// System.out.println();
+		// train();
+		// System.out.println();
+		// System.out.println();
 		all();
 	}
 
 	private static void all() throws Exception {
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt", WordUtil.classes[3], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
-				+ "%");
-		
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/culture.txt",
+		// WordUtil.classes[0], keyWordsNum) * 100)
+		// + "%");
+		System.out.println(
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment.txt", WordUtil.classes[0], keyWordsNum) * 100)
+						+ "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt",
+		// WordUtil.classes[1], keyWordsNum) * 100)
+		// + "%");
+		System.out.println(
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/military.txt", WordUtil.classes[1], keyWordsNum) * 100)
+						+ "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
+		// WordUtil.classes[3], keyWordsNum) * 100)
+		// + "%");
+		System.out.println(
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[2], keyWordsNum) * 100)
+						+ "%");
+
 	}
 
-	private static void test() throws IOException {
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/history.txt", WordUtil.classes[3], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
-				+ "%");
-		
+	private static void test() throws Exception {
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/culture.txt",
+				WordUtil.classes[0], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/history.txt",
+				WordUtil.classes[1], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/military.txt",
+				WordUtil.classes[2], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/reading.txt",
+				WordUtil.classes[3], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/society&law.txt",
+				WordUtil.classes[4], keyWordsNum) * 100) + "%");
+
 	}
 
-	public static void train() throws IOException{
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/education.txt", WordUtil.classes[1], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/entertainment.txt", WordUtil.classes[2], keyWordsNum)* 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",WordUtil.classes[3], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/it.txt", WordUtil.classes[4], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/military.txt", WordUtil.classes[5], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/reading.txt", WordUtil.classes[6], keyWordsNum) * 100)
-				+ "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/society&law.txt", WordUtil.classes[7], keyWordsNum) * 100)
-				+ "%");
+	public static void train() throws Exception {
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt",
+				WordUtil.classes[0], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",
+				WordUtil.classes[1], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/military.txt",
+				WordUtil.classes[2], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/reading.txt",
+				WordUtil.classes[3], keyWordsNum) * 100) + "%");
+		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/society&law.txt",
+				WordUtil.classes[4], keyWordsNum) * 100) + "%");
+
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt",
+		// WordUtil.classes[0], keyWordsNum) * 100)
+		// + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/education.txt",
+		// WordUtil.classes[1], keyWordsNum) * 100)
+		// + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/entertainment.txt",
+		// WordUtil.classes[2], keyWordsNum)* 100)
+		// + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",WordUtil.classes[3],
+		// keyWordsNum) * 100)
+		// + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/it.txt",
+		// WordUtil.classes[4], keyWordsNum) * 100) + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/military.txt",
+		// WordUtil.classes[5], keyWordsNum) * 100)
+		// + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/reading.txt",
+		// WordUtil.classes[6], keyWordsNum) * 100)
+		// + "%");
+		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/society&law.txt",
+		// WordUtil.classes[7], keyWordsNum) * 100)
+		// + "%");
 	}
-	
-	public static double getCorrectNum(String fileAbsulotePath, String className, int keyNum) throws IOException {
+
+	public static double getCorrectNum(String fileAbsulotePath, String className, int keyNum) throws Exception {
 		// 临时用来读取文件，故加tem
 		BufferedReader bufrtem = new BufferedReader(new FileReader(fileAbsulotePath));
 		List<String> list = new ArrayList<String>();
@@ -137,40 +166,58 @@ public class EntryOfTheCode2017 {
 		while ((line = bufrtem.readLine()) != null) {
 			list.add(line);
 		}
-//		System.out.println(className + " list.size():" + list.size());
+		// System.out.println(className + " list.size():" + list.size());
 		int correctNum = 0;// 记录正确分类的个数
 		for (int index = 0; index < list.size(); index++) {// 对每行（即每个文档）单独处理
 			String[] strs;// 用来存放关键字
 			WordUtil wu = new WordUtil();
-			strs = keyWords.getSortedKeyWords(list.get(index), keyNum);//使用tfidf抽取关键字
+			strs = keyWords.getSortedKeyWords(list.get(index), keyNum);// 使用tfidf抽取关键字
 			tfmap = keyWords.getTfmap();
-//			System.out.println();//为方便打印关键字换行
+			// System.out.println();//为方便打印关键字换行
 			for (int i = 0; i < strs.length; i++) {// 对于每个关键字
 				if (strs[i] != null) {// 如果不是null，和不同类别计算距离
 					// 1 得到关键字最近的分类，和与该类的距离
 					ResuUtils re = getWordsClassDistance(strs[i]);
 					// 2 找到该分类在WordUtil中classes的序号，类标志位加1，得分加上cos值
 					for (int j = 0; j < wu.classes.length; j++) {
-						if (re.c.equals(wu.classes[j])) {
+						if (re.c != null && re.c.equals(wu.classes[j])) {
 							wu.num[j]++;
 							double tf = tfmap.get(strs[i]).getCounter();
 							double idf = idfmap.get(strs[i]);
-							wu.score[j] = wu.score[j].add(re.temp
-									.multiply(new BigDecimal(tf * idf)));
+							wu.tfidf[j] = new BigDecimal(tf * idf);
+							wu.score[j] = wu.score[j].add(re.temp.multiply(wu.tfidf[j]));
+							bufww.write(strs[i] + ":" + wu.tfidf[j]);
+							bufww.newLine();
 						}
 					}
 				}
 			}
 
+			bufww.write("-------------------------");
+			bufww.newLine();
+			
 			// 得到每个类平均的cos值
 			for (int i = 0; i < wu.results.length; i++) {
 				if (wu.num[i] != 0) {
 					wu.results[i] = wu.score[i].divide(new BigDecimal(wu.num[i]), 8, BigDecimal.ROUND_HALF_UP);
+					bufww.write(wu.classes[i] + ":" + wu.results[i] + ":" + wu.num[i] + ":" + wu.score[i] );
+					bufww.newLine();
 				} else {
 					wu.results[i] = new BigDecimal(0);
 				}
 			}
 
+			for (int i = 0; i < wu.num.length; i++) {
+				if(wu.num[i]!=0){
+					wu.resultIndex = 0;
+				}
+			}
+			if(wu.resultIndex==-1){
+				bufww.write("没有此分类。。。。。");
+				bufww.write("*********************************************");
+				bufww.newLine();
+				continue;
+			}
 			// 最大cos值的index，通过它找到类
 			// System.out.print(wu.results[0] + " ");
 			for (int i = 1; i < wu.results.length; i++) {
@@ -187,29 +234,44 @@ public class EntryOfTheCode2017 {
 				correctNum++;
 			}
 			// System.out.println();
-//			System.out.println("分类结果为：" + wu.classes[wu.resultIndex] + " 得分：" + wu.results[wu.resultIndex]);
-//			System.out.println("*********************************************");
+			if(!className.equals(wu.classes[wu.resultIndex])){
+				System.out.println(errorNum++ + ":实际分类：" + className + " 分类结果为：" + wu.classes[wu.resultIndex]);
+				bufww.write("#");
+				bufww.newLine();
+			}
+			bufww.write("实际分类：" + className + " 分类结果为：" + wu.resultIndex + wu.classes[wu.resultIndex] + " 得分：" + wu.results[wu.resultIndex]);
+			bufww.newLine();
+			bufww.write("*********************************************");
+			bufww.newLine();
+			// System.out.println("分类结果为：" + wu.classes[wu.resultIndex] + " 得分："
+			// + wu.results[wu.resultIndex]);
+			// System.out.println("*********************************************");
 		}
 		// System.out.println("正确率为：" + (correctNum*1.0/files.length) + "%...");
 		return correctNum * 1.0 / list.size();
 	}
 
 	// 得到一个关键字的分类
-	public static ResuUtils getWordsClassDistance(String str) {
+	public static ResuUtils getWordsClassDistance(String str) throws Exception {
 		String[] classes = getClassWords();
 		ResuUtils re = new ResuUtils();
 		for (int i = 0; i < classes.length; i++) {
-			if(word2Vec.hasWord(str)&&word2Vec.hasWord(classes[i])){
-			BigDecimal distince = new BigDecimal(word2Vec.similarity(str, classes[i])) ;
-//			BigDecimal distince = calcWordsDistance(str, classes[i]);
-			// 找出离该词最近的分类和距离
-			if (distince.subtract(re.temp).compareTo(big0)>=0) {
-				re.temp = distince;
-				re.c = classes[i];
+			if (word2Vec.hasWord(str) && word2Vec.hasWord(classes[i])) {
+				BigDecimal distince = new BigDecimal(word2Vec.similarity(str, classes[i]));
+				// BigDecimal distince = calcWordsDistance(str, classes[i]);
+				// 找出离该词最近的分类和距离
+				if (distince.subtract(re.temp).compareTo(big0) >= 0) {
+					re.temp = distince;
+					re.c = classes[i];
 				}
+			} else {
+				re.c = null;
 			}
 		}
-//		System.out.println("关键词 "+str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
+		// System.out.println("关键词 "+str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" +
+		// re.temp);
+		bufww.write("关键词 " + str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
+		bufww.newLine();
 		return re;
 	}
 
@@ -252,7 +314,7 @@ public class EntryOfTheCode2017 {
 	 * @return
 	 */
 	public static String[] getClassWords() {
-//		String[] strs = { "文化", "教育", "娱乐", "历史", "互联网", "武器", "阅读", "犯罪" };
+		// String[] strs = { "文化", "教育", "娱乐", "历史", "互联网", "武器", "阅读", "犯罪" };
 
 		return WordUtil.classes;
 	}

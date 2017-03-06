@@ -1,5 +1,6 @@
 package nlpir;
 
+import java.awt.FocusTraversalPolicy;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -34,10 +35,12 @@ public class EntryOfTheCode2017 {
 	private static BufferedWriter bufwtf;
 	private static Map<String, Double> idfmap;
 	private static Map<String, MutableInt> tfmap;
-	private static int keyWordsNum = 10;
+	private static int keyWordsNum = 9;
 	private static BigDecimal big0 = new BigDecimal(0.0);
 	private static BigDecimal big1 = new BigDecimal(-1.0);
 	static int errorNum = 0;
+	static int noClass = 0;//没有分类结果的个数
+	static int[][] resultMatix = new int[WordUtil.classes.length][WordUtil.classes.length];
 
 	private static BufferedWriter bufww;
 	// 初始化
@@ -47,7 +50,6 @@ public class EntryOfTheCode2017 {
 		try {
 			bufww = new BufferedWriter(new FileWriter(new File("c:/d/result.txt")));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String resultString = null;
@@ -83,12 +85,23 @@ public class EntryOfTheCode2017 {
 		// System.out.println();
 		// System.out.println();
 		all();
+		
+		for (int i = 0; i < resultMatix.length; i++) {
+			for (int j = 0; j < resultMatix.length; j++) {
+				System.out.print(resultMatix[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		System.out.println(noClass);
 	}
 
 	private static void all() throws Exception {
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/culture.txt",
-		// WordUtil.classes[0], keyWordsNum) * 100)
-		// + "%");
+//		System.out.println(
+//				(getCorrectNum("C:/D/NLPIR/paper/files/all/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
+//						+ "%");
+//		System.out.println(
+//				(getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[0], keyWordsNum) * 100)
+//				+ "%");
 		System.out.println(
 				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment.txt", WordUtil.classes[0], keyWordsNum) * 100)
 						+ "%");
@@ -166,6 +179,7 @@ public class EntryOfTheCode2017 {
 		while ((line = bufrtem.readLine()) != null) {
 			list.add(line);
 		}
+		
 		// System.out.println(className + " list.size():" + list.size());
 		int correctNum = 0;// 记录正确分类的个数
 		for (int index = 0; index < list.size(); index++) {// 对每行（即每个文档）单独处理
@@ -186,8 +200,8 @@ public class EntryOfTheCode2017 {
 							double idf = idfmap.get(strs[i]);
 							wu.tfidf[j] = new BigDecimal(tf * idf);
 							wu.score[j] = wu.score[j].add(re.temp.multiply(wu.tfidf[j]));
-							bufww.write(strs[i] + ":" + wu.tfidf[j]);
-							bufww.newLine();
+//							bufww.write(strs[i] + ":" + wu.tfidf[j]);
+//							bufww.newLine();
 						}
 					}
 				}
@@ -195,25 +209,26 @@ public class EntryOfTheCode2017 {
 
 			bufww.write("-------------------------");
 			bufww.newLine();
-			
+
 			// 得到每个类平均的cos值
 			for (int i = 0; i < wu.results.length; i++) {
 				if (wu.num[i] != 0) {
 					wu.results[i] = wu.score[i].divide(new BigDecimal(wu.num[i]), 8, BigDecimal.ROUND_HALF_UP);
-					bufww.write(wu.classes[i] + ":" + wu.results[i] + ":" + wu.num[i] + ":" + wu.score[i] );
-					bufww.newLine();
+//					bufww.write(wu.classes[i] + ":" + wu.results[i] + ":" + wu.num[i] + ":" + wu.score[i]);
+//					bufww.newLine();
 				} else {
 					wu.results[i] = new BigDecimal(0);
 				}
 			}
 
 			for (int i = 0; i < wu.num.length; i++) {
-				if(wu.num[i]!=0){
+				if (wu.num[i] != 0) {
 					wu.resultIndex = 0;
 				}
 			}
-			if(wu.resultIndex==-1){
+			if (wu.resultIndex == -1) {
 				bufww.write("没有此分类。。。。。");
+				noClass++;
 				bufww.write("*********************************************");
 				bufww.newLine();
 				continue;
@@ -234,20 +249,30 @@ public class EntryOfTheCode2017 {
 				correctNum++;
 			}
 			// System.out.println();
-			if(!className.equals(wu.classes[wu.resultIndex])){
-				System.out.println(errorNum++ + ":实际分类：" + className + " 分类结果为：" + wu.classes[wu.resultIndex]);
-				bufww.write("#");
-				bufww.newLine();
+			if (!className.equals(wu.classes[wu.resultIndex])) {
+				// System.out.println(errorNum++ + ":实际分类：" + className + "
+				// 分类结果为：" + wu.classes[wu.resultIndex]);
+				// bufww.write("#");
+				// bufww.newLine();
+				for(int j =0;j<wu.classes.length;j++){
+					if(wu.classes[j].equals(className)){
+						resultMatix[j][wu.resultIndex]++;
+					}
+				}
+			}else{
+				resultMatix[wu.resultIndex][wu.resultIndex]++;
 			}
-			bufww.write("实际分类：" + className + " 分类结果为：" + wu.resultIndex + wu.classes[wu.resultIndex] + " 得分：" + wu.results[wu.resultIndex]);
-			bufww.newLine();
-			bufww.write("*********************************************");
+			bufww.write("实际分类：" + className + " 分类结果为：" + wu.resultIndex + wu.classes[wu.resultIndex] + " 得分："
+					+ wu.results[wu.resultIndex]);
+//			bufww.newLine();
+//			bufww.write("*********************************************");
 			bufww.newLine();
 			// System.out.println("分类结果为：" + wu.classes[wu.resultIndex] + " 得分："
 			// + wu.results[wu.resultIndex]);
 			// System.out.println("*********************************************");
 		}
 		// System.out.println("正确率为：" + (correctNum*1.0/files.length) + "%...");
+		System.out.println(list.size());
 		return correctNum * 1.0 / list.size();
 	}
 
@@ -270,8 +295,8 @@ public class EntryOfTheCode2017 {
 		}
 		// System.out.println("关键词 "+str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" +
 		// re.temp);
-		bufww.write("关键词 " + str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
-		bufww.newLine();
+//		bufww.write("关键词 " + str + ":最接近的分类是：" + re.c + "---最接近的余弦值为：" + re.temp);
+//		bufww.newLine();
 		return re;
 	}
 

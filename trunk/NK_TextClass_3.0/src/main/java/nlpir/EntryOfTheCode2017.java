@@ -77,18 +77,132 @@ public class EntryOfTheCode2017 {
 	}
 
 	public static void main(String[] args) throws Exception {
-		
+		long start = System.currentTimeMillis();
 		// test();
 		// System.out.println();
 		// System.out.println();
 		// train();
 		// System.out.println();
 		// System.out.println();
-		TopMethod(12,"clean3.0/clean3.0_100_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_50_1.txt");
+		
+		
+//		TopMethod(2,"clean3.0/clean3.0_75_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_75_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_75_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_75_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_75_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_75_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_100_1.txt");
-		TopMethod(16,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_100_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_125_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_125_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_125_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_125_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_125_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_125_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_150_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_150_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_150_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_150_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_150_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_300_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_400_1.txt");
 		
 		
+//		TopMethod(2,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(8,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
+		
+//		TopMethod(2,"clean3.0/clean3.0_1000_1.txt");
+//		TopMethod(4,"clean3.0/clean3.0_1000_1.txt");
+//		TopMethod(6,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_1000_1.txt");
+//		TopMethod(12,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_1000_1.txt");
+//		TopMethod(16,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");
+		
+		bufwMatrixResult.write("总共用时：" + (System.currentTimeMillis() - start) + "ms");
+		bufwMatrixResult.newLine();
+		bufwMatrixResult.write("总共用时：" + ((System.currentTimeMillis() - start)/1000) + "m");
+		bufwMatrixResult.newLine();
+		bufwMatrixResult.write("总共用时：" + ((System.currentTimeMillis() - start)/1000/60) + "min");
+		bufwMatrixResult.newLine();
 		//保存所有结果
 		if(bufwMatrixResult!=null){
 			bufwMatrixResult.close();
@@ -100,11 +214,7 @@ public class EntryOfTheCode2017 {
 		bufwMatrixResult.write("-------keyWordsNum:"+ keyWordsNum + " Vector:" + vecSonPath + " -----------");
 		bufwMatrixResult.newLine();
 		//下面几个变量都是在计算之前要初始化的
-		if(word2Vec!=null){
-			//如果没有加载就加载一下词向量
-		}else{
-			word2Vec = WordVectorSerializer.readWord2VecModel(vecFatherPath + vecSonPath);
-		}
+		word2Vec = WordVectorSerializer.readWord2VecModel(vecFatherPath + vecSonPath);
 		resultMatix = new int[WordUtil.classes.length][WordUtil.classes.length];
 		errorNum = 0;
 		noClass = 0;//没有分类结果的个数

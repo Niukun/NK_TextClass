@@ -1,6 +1,5 @@
 package nlpir;
 
-import java.awt.FocusTraversalPolicy;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -27,28 +26,35 @@ public class EntryOfTheCode2017 {
 
 	static CLibrary instance = (CLibrary) Native.loadLibrary(System.getProperty("user.dir") + "\\source\\NLPIR",
 			CLibrary.class);
-	static Word2Vec word2Vec;
-	static BufferedWriter bufw = null;
+	static Word2Vec word2Vec = null;
 
 	private static List<String> allDocuments = new ArrayList<String>();
 	private static BufferedWriter bufwidf;
 	private static BufferedWriter bufwtf;
+	private static BufferedWriter bufwMatrixResult; //用来存放结果矩阵以及准确率、召回率、F值等
+	private static BufferedWriter bufwResult;//用来存放程序运行过程中产生的输出，以便观察结果变化
 	private static Map<String, Double> idfmap;
 	private static Map<String, MutableInt> tfmap;
-	private static int keyWordsNum = 9;
+	
+//	private static int keyWordsNum = 18;
+	
 	private static BigDecimal big0 = new BigDecimal(0.0);
 	private static BigDecimal big1 = new BigDecimal(-1.0);
-	static int errorNum = 0;
-	static int noClass = 0;//没有分类结果的个数
-	static int[][] resultMatix = new int[WordUtil.classes.length][WordUtil.classes.length];
+	
+	private static int errorNum;
+	private static int noClass;//没有分类结果的个数
+	
+	private static String vecFatherPath = "C:/D/NLPIR/paper/files/merge/";
+	
+	static int[][] resultMatix;
 
-	private static BufferedWriter bufww;
 	// 初始化
 	static {
 		// 分词模块初始化
 		int init_flag = instance.NLPIR_Init("", 1, "0");
 		try {
-			bufww = new BufferedWriter(new FileWriter(new File("c:/d/result.txt")));
+			bufwResult = new BufferedWriter(new FileWriter(new File("c:/d/result.txt")));
+			bufwMatrixResult = new BufferedWriter(new FileWriter(new File("C:/D/MatrixResult.txt")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -57,12 +63,6 @@ public class EntryOfTheCode2017 {
 			resultString = instance.NLPIR_GetLastErrorMsg();
 			System.err.println("初始化失败！\n" + resultString);
 		}
-		// 词向量模型加载
-		long start = System.currentTimeMillis();
-		word2Vec = WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/clean3.0/clean3.0_200_1.txt");
-		// word2Vec =
-		// WordVectorSerializer.readWord2VecModel("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteVector_100_1.txt");
-		System.out.println("加载模型使用时间：" + (System.currentTimeMillis() - start));
 
 		// tfidf模块准备，得到idfmap和所有分类文档
 		try {
@@ -72,30 +72,108 @@ public class EntryOfTheCode2017 {
 			System.out.println("idf map size:" + idfmap.size());
 		} catch (IOException e1) {
 			System.out.println("New keyWords() error...");
-			// e1.printStackTrace();
 		}
 
 	}
 
 	public static void main(String[] args) throws Exception {
+		
 		// test();
 		// System.out.println();
 		// System.out.println();
 		// train();
 		// System.out.println();
 		// System.out.println();
-		all();
+		TopMethod(12,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_100_1.txt");
 		
+		
+		//保存所有结果
+		if(bufwMatrixResult!=null){
+			bufwMatrixResult.close();
+		}
+	}
+
+	private static void TopMethod(int keyWordsNum,String vecSonPath) throws IOException, Exception {
+		System.out.println("-------keyWordsNum:"+ keyWordsNum + " Vector:" + vecSonPath + " -----------");
+		bufwMatrixResult.write("-------keyWordsNum:"+ keyWordsNum + " Vector:" + vecSonPath + " -----------");
+		bufwMatrixResult.newLine();
+		//下面几个变量都是在计算之前要初始化的
+		if(word2Vec!=null){
+			//如果没有加载就加载一下词向量
+		}else{
+			word2Vec = WordVectorSerializer.readWord2VecModel(vecFatherPath + vecSonPath);
+		}
+		resultMatix = new int[WordUtil.classes.length][WordUtil.classes.length];
+		errorNum = 0;
+		noClass = 0;//没有分类结果的个数
+		
+		all(keyWordsNum);
+		printResults();
+		
+		bufwMatrixResult.newLine();
+		bufwMatrixResult.flush();
+	}
+
+	/*
+	 * //输出结果矩阵
+	 */
+	private static void printResults() throws IOException {
+		double[] zhunque = new double[WordUtil.classes.length];
+		double[] chanquan = new double[WordUtil.classes.length];
+		
+		//结果矩阵
+		System.out.println("-----结果矩阵-----");
+		bufwMatrixResult.write("-----结果矩阵-----");
+		bufwMatrixResult.newLine();
 		for (int i = 0; i < resultMatix.length; i++) {
 			for (int j = 0; j < resultMatix.length; j++) {
 				System.out.print(resultMatix[i][j] + "\t");
+				bufwMatrixResult.write(resultMatix[i][j] + "\t");
 			}
+			bufwMatrixResult.newLine();
 			System.out.println();
 		}
-		System.out.println(noClass);
+		
+		//输出准确率
+		System.out.println("------准确率------");
+		bufwMatrixResult.write("------准确率------");
+		bufwMatrixResult.newLine();
+		for (int i = 0; i < WordUtil.classes.length; i++) {
+			chanquan[i] = (resultMatix[i][i]*1.0/(resultMatix[0][i]+resultMatix[1][i]+resultMatix[2][i]));
+			System.out.println(chanquan[i]);
+			bufwMatrixResult.write(Double.toString(chanquan[i]));
+			bufwMatrixResult.newLine();
+		}
+		//输出召回率
+		System.out.println("------召回率------");
+		bufwMatrixResult.write("------召回率------");
+		bufwMatrixResult.newLine();
+		for (int i = 0; i < WordUtil.classes.length; i++) {
+			zhunque[i] = (resultMatix[i][i]*1.0/(resultMatix[i][0]+resultMatix[i][1]+resultMatix[i][2]));
+			System.out.println(zhunque[i]);
+			bufwMatrixResult.write(Double.toString(zhunque[i]));
+			bufwMatrixResult.newLine();
+			
+		}
+		
+		//输出F值
+		System.out.println("------F值------");
+		bufwMatrixResult.write("------F值------");
+		bufwMatrixResult.newLine();
+		for (int i = 0; i < WordUtil.classes.length; i++) {
+			System.out.println(chanquan[i]*zhunque[i]*2/(chanquan[i]+zhunque[i]));
+			bufwMatrixResult.write(Double.toString(chanquan[i]*zhunque[i]*2/(chanquan[i]+zhunque[i])));
+			bufwMatrixResult.newLine();
+		}
+		System.out.println("没有找到分类的数量:" + noClass);
+		bufwMatrixResult.write("没有找到分类的数量:" + noClass);
+		bufwMatrixResult.newLine();
+		
 	}
 
-	private static void all() throws Exception {
+	private static void all(int keyWordsNum) throws Exception {
 //		System.out.println(
 //				(getCorrectNum("C:/D/NLPIR/paper/files/all/culture.txt", WordUtil.classes[0], keyWordsNum) * 100)
 //						+ "%");
@@ -120,7 +198,7 @@ public class EntryOfTheCode2017 {
 
 	}
 
-	private static void test() throws Exception {
+	private static void test(int keyWordsNum) throws Exception {
 		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/culture.txt",
 				WordUtil.classes[0], keyWordsNum) * 100) + "%");
 		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/history.txt",
@@ -134,7 +212,7 @@ public class EntryOfTheCode2017 {
 
 	}
 
-	public static void train() throws Exception {
+	public static void train(int keyWordsNum) throws Exception {
 		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt",
 				WordUtil.classes[0], keyWordsNum) * 100) + "%");
 		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",
@@ -207,8 +285,8 @@ public class EntryOfTheCode2017 {
 				}
 			}
 
-			bufww.write("-------------------------");
-			bufww.newLine();
+//			bufww.write("-------------------------");
+//			bufww.newLine();
 
 			// 得到每个类平均的cos值
 			for (int i = 0; i < wu.results.length; i++) {
@@ -227,10 +305,10 @@ public class EntryOfTheCode2017 {
 				}
 			}
 			if (wu.resultIndex == -1) {
-				bufww.write("没有此分类。。。。。");
+				bufwResult.write("没有此分类。。。。。");
 				noClass++;
-				bufww.write("*********************************************");
-				bufww.newLine();
+				bufwResult.write("*********************************************");
+				bufwResult.newLine();
 				continue;
 			}
 			// 最大cos值的index，通过它找到类
@@ -249,6 +327,7 @@ public class EntryOfTheCode2017 {
 				correctNum++;
 			}
 			// System.out.println();
+			//实际分类：className  分类结果为：wu.classes[wu.resultIndex]
 			if (!className.equals(wu.classes[wu.resultIndex])) {
 				// System.out.println(errorNum++ + ":实际分类：" + className + "
 				// 分类结果为：" + wu.classes[wu.resultIndex]);
@@ -262,17 +341,17 @@ public class EntryOfTheCode2017 {
 			}else{
 				resultMatix[wu.resultIndex][wu.resultIndex]++;
 			}
-			bufww.write("实际分类：" + className + " 分类结果为：" + wu.resultIndex + wu.classes[wu.resultIndex] + " 得分："
+			bufwResult.write("实际分类：" + className + " 分类结果为：" + wu.resultIndex + wu.classes[wu.resultIndex] + " 得分："
 					+ wu.results[wu.resultIndex]);
 //			bufww.newLine();
 //			bufww.write("*********************************************");
-			bufww.newLine();
+			bufwResult.newLine();
 			// System.out.println("分类结果为：" + wu.classes[wu.resultIndex] + " 得分："
 			// + wu.results[wu.resultIndex]);
 			// System.out.println("*********************************************");
 		}
 		// System.out.println("正确率为：" + (correctNum*1.0/files.length) + "%...");
-		System.out.println(list.size());
+//		System.out.println(list.size());
 		return correctNum * 1.0 / list.size();
 	}
 

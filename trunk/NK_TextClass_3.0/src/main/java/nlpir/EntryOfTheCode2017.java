@@ -44,7 +44,8 @@ public class EntryOfTheCode2017 {
 	private static int errorNum;
 	private static int noClass;//没有分类结果的个数
 	
-	private static String vecFatherPath = "C:/D/NLPIR/paper/files/merge/";
+	private static String vecFatherPath = "E:/NLPIR/merge/";
+//	private static String vecFatherPath = "C:/D/NLPIR/paper/files/merge/";
 	
 	static int[][] resultMatix;
 
@@ -85,117 +86,148 @@ public class EntryOfTheCode2017 {
 		// System.out.println();
 		// System.out.println();
 		
-//		TopMethod(2,"clean3.0/clean3.0_50_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_50_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_50_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_50_1.txt");
+/*		TopMethod(2,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_50_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_50_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_50_1.txt");
 		
 		
-//		TopMethod(2,"clean3.0/clean3.0_75_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_75_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_75_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_75_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_75_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_75_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_75_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_100_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_100_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_100_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_100_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_100_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_100_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_125_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_125_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_125_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_125_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_125_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_125_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_125_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_150_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_150_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_150_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_150_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_150_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_200_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_300_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_300_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_300_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_250_1.txt");
+		
+		TopMethod(2,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_300_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_300_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_300_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_400_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_400_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_400_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_400_1.txt");
+		
+		TopMethod(2,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_350_1.txt");
+//		
+		
+		TopMethod(2,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_400_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_400_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_400_1.txt");
 		
 		
-//		TopMethod(2,"clean3.0/clean3.0_500_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_500_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_500_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_500_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_500_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
 		
-//		TopMethod(2,"clean3.0/clean3.0_1000_1.txt");
-//		TopMethod(4,"clean3.0/clean3.0_1000_1.txt");
-//		TopMethod(6,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(8,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(10,"clean3.0/clean3.0_1000_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(14,"clean3.0/clean3.0_1000_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_1000_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");*/
+		
+		TopMethod(14,"sohusite/sohusiteVector_100_1.txt");
+		TopMethod(20,"sohusite/sohusiteVector_100_1.txt");
+		TopMethod(14,"sohusite/sohusiteVector_200_1.txt");
+		TopMethod(20,"sohusite/sohusiteVector_200_1.txt");
+		TopMethod(14,"sohusite/sohusiteVector_300_1.txt");
+		TopMethod(20,"sohusite/sohusiteVector_300_1.txt");
 		
 		bufwMatrixResult.write("总共用时：" + (System.currentTimeMillis() - start) + "ms");
 		bufwMatrixResult.newLine();
@@ -230,8 +262,8 @@ public class EntryOfTheCode2017 {
 	 * //输出结果矩阵
 	 */
 	private static void printResults() throws IOException {
+		double[] zhaohui = new double[WordUtil.classes.length];
 		double[] zhunque = new double[WordUtil.classes.length];
-		double[] chanquan = new double[WordUtil.classes.length];
 		
 		//结果矩阵
 		System.out.println("-----结果矩阵-----");
@@ -251,9 +283,14 @@ public class EntryOfTheCode2017 {
 		bufwMatrixResult.write("------准确率------");
 		bufwMatrixResult.newLine();
 		for (int i = 0; i < WordUtil.classes.length; i++) {
-			chanquan[i] = (resultMatix[i][i]*1.0/(resultMatix[0][i]+resultMatix[1][i]+resultMatix[2][i]));
-			System.out.println(chanquan[i]);
-			bufwMatrixResult.write(Double.toString(chanquan[i]));
+			double fenmu = 0.0;
+			for(int j =0;j<WordUtil.classes.length;j++){
+				fenmu += resultMatix[j][i];
+			}
+			
+			zhunque[i] = (resultMatix[i][i]*1.0/fenmu);
+			System.out.println(zhunque[i]);
+			bufwMatrixResult.write(Double.toString(zhunque[i]));
 			bufwMatrixResult.newLine();
 		}
 		//输出召回率
@@ -261,9 +298,13 @@ public class EntryOfTheCode2017 {
 		bufwMatrixResult.write("------召回率------");
 		bufwMatrixResult.newLine();
 		for (int i = 0; i < WordUtil.classes.length; i++) {
-			zhunque[i] = (resultMatix[i][i]*1.0/(resultMatix[i][0]+resultMatix[i][1]+resultMatix[i][2]));
-			System.out.println(zhunque[i]);
-			bufwMatrixResult.write(Double.toString(zhunque[i]));
+			double fenmu = 0.0;
+			for(int j =0;j<WordUtil.classes.length;j++){
+				fenmu += resultMatix[i][j];
+			}
+			zhaohui[i] = (resultMatix[i][i]*1.0/fenmu);
+			System.out.println(zhaohui[i]);
+			bufwMatrixResult.write(Double.toString(zhaohui[i]));
 			bufwMatrixResult.newLine();
 			
 		}
@@ -273,8 +314,8 @@ public class EntryOfTheCode2017 {
 		bufwMatrixResult.write("------F值------");
 		bufwMatrixResult.newLine();
 		for (int i = 0; i < WordUtil.classes.length; i++) {
-			System.out.println(chanquan[i]*zhunque[i]*2/(chanquan[i]+zhunque[i]));
-			bufwMatrixResult.write(Double.toString(chanquan[i]*zhunque[i]*2/(chanquan[i]+zhunque[i])));
+			System.out.println(zhunque[i]*zhaohui[i]*2/(zhunque[i]+zhaohui[i]));
+			bufwMatrixResult.write(Double.toString(zhunque[i]*zhaohui[i]*2/(zhunque[i]+zhaohui[i])));
 			bufwMatrixResult.newLine();
 		}
 		System.out.println("没有找到分类的数量:" + noClass);
@@ -300,7 +341,7 @@ public class EntryOfTheCode2017 {
 				(getCorrectNum("C:/D/NLPIR/paper/files/all/military.txt", WordUtil.classes[1], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
-		// WordUtil.classes[3], keyWordsNum) * 100)
+		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
 				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[2], keyWordsNum) * 100)

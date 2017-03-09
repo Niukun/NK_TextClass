@@ -13,9 +13,15 @@ public class test1 {
 		System.out.println("start");
 		long start = System.currentTimeMillis();
 
-		testReading();
-		
-		System.out.println((System.currentTimeMillis()-start)/60000.0);
+		for (int i = 0; i < Integer.MAX_VALUE; i++) {
+//			if(i%1000==0)
+//			System.out.println(i + "\tyou are my girl..");
+		}
+		System.out.println("I LOVE YOU");
+//		System.out.println("爱你时间的千分之一为：" + (System.currentTimeMillis()-start)/1000.0 + "s");
+		System.out.println("总共可以爱你时间：" + (System.currentTimeMillis()-start) + "s");
+//		System.out.println("总共可以爱你时间：" + (System.currentTimeMillis()-start)/60.0 + "min");
+//		System.out.println("总共可以爱你时间：" + (System.currentTimeMillis()-start)/3600.0 + "h");
 	}
 
 	public static void testReading() throws FileNotFoundException, IOException {

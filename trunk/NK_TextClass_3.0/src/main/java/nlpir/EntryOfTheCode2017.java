@@ -44,8 +44,8 @@ public class EntryOfTheCode2017 {
 	private static int errorNum;
 	private static int noClass;//没有分类结果的个数
 	
-	private static String vecFatherPath = "E:/NLPIR/merge/";
-//	private static String vecFatherPath = "C:/D/NLPIR/paper/files/merge/";
+//	private static String vecFatherPath = "E:/NLPIR/merge/";
+	private static String vecFatherPath = "C:/D/NLPIR/paper/files/merge/";
 	
 	static int[][] resultMatix;
 
@@ -86,6 +86,19 @@ public class EntryOfTheCode2017 {
 		// System.out.println();
 		// System.out.println();
 		
+		TopMethod(20,"clean3.0/clean3.0_50_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_100_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_250_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_300_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_350_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_400_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_500_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");
+		
+		
+		
 /*		TopMethod(2,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_50_1.txt");
@@ -96,8 +109,8 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_50_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_50_1.txt");
-		
-		
+	
+	
 		TopMethod(2,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_75_1.txt");
@@ -108,7 +121,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_75_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_75_1.txt");
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_100_1.txt");
@@ -119,7 +132,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_100_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_100_1.txt");
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_125_1.txt");
@@ -130,7 +143,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_125_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_125_1.txt");
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_150_1.txt");
@@ -141,7 +154,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_150_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
@@ -163,7 +176,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_250_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_250_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_250_1.txt");
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_300_1.txt");
@@ -174,8 +187,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_300_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_300_1.txt");
-		
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_350_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_350_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_350_1.txt");
@@ -186,8 +198,8 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_350_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_350_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_350_1.txt");
-//		
-		
+	
+	
 		TopMethod(2,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_400_1.txt");
@@ -198,8 +210,8 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_400_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_400_1.txt");
-		
-		
+	
+	
 		TopMethod(2,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_500_1.txt");
@@ -210,7 +222,7 @@ public class EntryOfTheCode2017 {
 		TopMethod(16,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_500_1.txt");
 		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
-		
+	
 		TopMethod(2,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(4,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(6,"clean3.0/clean3.0_1000_1.txt");
@@ -220,14 +232,14 @@ public class EntryOfTheCode2017 {
 		TopMethod(14,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(16,"clean3.0/clean3.0_1000_1.txt");
 		TopMethod(18,"clean3.0/clean3.0_1000_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");*/
+		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");
 		
 		TopMethod(14,"sohusite/sohusiteVector_100_1.txt");
 		TopMethod(20,"sohusite/sohusiteVector_100_1.txt");
 		TopMethod(14,"sohusite/sohusiteVector_200_1.txt");
 		TopMethod(20,"sohusite/sohusiteVector_200_1.txt");
 		TopMethod(14,"sohusite/sohusiteVector_300_1.txt");
-		TopMethod(20,"sohusite/sohusiteVector_300_1.txt");
+		TopMethod(20,"sohusite/sohusiteVector_300_1.txt");*/
 		
 		bufwMatrixResult.write("总共用时：" + (System.currentTimeMillis() - start) + "ms");
 		bufwMatrixResult.newLine();

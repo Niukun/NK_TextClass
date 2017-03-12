@@ -86,16 +86,16 @@ public class EntryOfTheCode2017 {
 		// System.out.println();
 		// System.out.println();
 		
-		TopMethod(20,"clean3.0/clean3.0_50_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_100_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_250_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_300_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_350_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_400_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_500_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_150_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_250_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_350_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(20,"clean3.0/clean3.0_1000_1.txt");
 		
 		
 		
@@ -241,6 +241,18 @@ public class EntryOfTheCode2017 {
 		TopMethod(14,"sohusite/sohusiteVector_300_1.txt");
 		TopMethod(20,"sohusite/sohusiteVector_300_1.txt");*/
 		
+		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
+		
+		
 		bufwMatrixResult.write("总共用时：" + (System.currentTimeMillis() - start) + "ms");
 		bufwMatrixResult.newLine();
 		bufwMatrixResult.write("总共用时：" + ((System.currentTimeMillis() - start)/1000) + "m");
@@ -355,9 +367,9 @@ public class EntryOfTheCode2017 {
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
-		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[2], keyWordsNum) * 100)
-						+ "%");
+//		System.out.println(
+//				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[1], keyWordsNum) * 100)
+//						+ "%");
 
 	}
 
@@ -437,10 +449,11 @@ public class EntryOfTheCode2017 {
 					for (int j = 0; j < wu.classes.length; j++) {
 						if (re.c != null && re.c.equals(wu.classes[j])) {
 							wu.num[j]++;
-							double tf = tfmap.get(strs[i]).getCounter();
-							double idf = idfmap.get(strs[i]);
-							wu.tfidf[j] = new BigDecimal(tf * idf);
-							wu.score[j] = wu.score[j].add(re.temp.multiply(wu.tfidf[j]));
+//							double tf = tfmap.get(strs[i]).getCounter();
+//							double idf = idfmap.get(strs[i]);
+//							wu.tfidf[j] = new BigDecimal(tf * idf);
+//							wu.score[j] = wu.score[j].add(re.temp.multiply(wu.tfidf[j]));
+							wu.score[j] = wu.score[j].add(re.temp);
 //							bufww.write(strs[i] + ":" + wu.tfidf[j]);
 //							bufww.newLine();
 						}

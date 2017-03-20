@@ -247,19 +247,19 @@ public class EntryOfTheCode2017 {
 //				(getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[0], keyWordsNum) * 100)
 //				+ "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment.txt", WordUtil.classes[0], keyWordsNum) * 100)
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment500.txt", WordUtil.classes[0], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/military.txt", WordUtil.classes[1], keyWordsNum) * 100)
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/military500.txt", WordUtil.classes[1], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[2], keyWordsNum) * 100)
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law500.txt", WordUtil.classes[2], keyWordsNum) * 100)
 						+ "%");
 
 	}

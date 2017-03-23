@@ -1,4 +1,4 @@
-## 1、语料词向量生成（针对搜狗语料库）##
+## 1、语料词向量生成（针对搜狗语料库）
 第一步：utils/splitFileUtils.java:切分大文件，并验证是否符合标准  
 第二步：utils/xmlFilesToTxt.java:将小文件逐一转化为xml文件，并从xml文件中逐一解析出需要的小文本集合  
 第三步：utils/mergeFileUtils.java:将小文件合并成大文件  

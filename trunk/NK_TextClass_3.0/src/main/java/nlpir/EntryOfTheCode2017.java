@@ -98,38 +98,42 @@ public class EntryOfTheCode2017 {
 		TopMethod(5,"clean3.0/clean3.0_1000_1.txt");*/
 		
 		
-		TopMethod(5,"clean3.0/clean3.0_50_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_100_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_150_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_250_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_300_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_350_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_400_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_500_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_1000_1.txt");
-		
-		
-//		TopMethod(1,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_50_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_100_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_150_1.txt");
 //		TopMethod(3,"clean3.0/clean3.0_200_1.txt");
 //		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
 //		TopMethod(5,"clean3.0/clean3.0_200_1.txt");
 //		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
 //		TopMethod(7,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(9,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(10,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(11,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(13,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(14,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(15,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(17,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(18,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(19,"clean3.0/clean3.0_200_1.txt");
-//		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_250_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_300_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_350_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_400_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_500_1.txt");
+//		TopMethod(5,"clean3.0/clean3.0_1000_1.txt");
+		
+		
+		TopMethod(1,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(3,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(5,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(7,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(9,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(10,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(11,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(13,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(14,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(15,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(17,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(18,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(19,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
 		
 		
 		
@@ -236,19 +240,19 @@ public class EntryOfTheCode2017 {
 //				(getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[0], keyWordsNum) * 100)
 //				+ "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment.txt", WordUtil.classes[0], keyWordsNum) * 100)
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment500.txt", WordUtil.classes[0], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/military.txt", WordUtil.classes[1], keyWordsNum) * 100)
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/military500.txt", WordUtil.classes[1], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law.txt", WordUtil.classes[2], keyWordsNum) * 100)
+				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law500.txt", WordUtil.classes[2], keyWordsNum) * 100)
 						+ "%");
 
 	}
@@ -329,11 +333,17 @@ public class EntryOfTheCode2017 {
 					for (int j = 0; j < wu.classes.length; j++) {
 						if (re.c != null && re.c.equals(wu.classes[j])) {
 							wu.num[j]++;
+							
+							//改进
 //							double tf = tfmap.get(strs[i]).getCounter();
 //							double idf = idfmap.get(strs[i]);
 //							wu.tfidf[j] = new BigDecimal(tf * idf);
 //							wu.score[j] = wu.score[j].add(re.temp.multiply(wu.tfidf[j]));
+							
+							//未改进
 							wu.score[j] = wu.score[j].add(re.temp);
+							
+							
 //							bufww.write(strs[i] + ":" + wu.tfidf[j]);
 //							bufww.newLine();
 						}

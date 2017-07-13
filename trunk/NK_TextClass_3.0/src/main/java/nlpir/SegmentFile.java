@@ -30,7 +30,8 @@ public class SegmentFile {
 		try {
 
 //			Double d = instance.NLPIR_FileProcess("C:/D/NLPIR/paper/files/merge/tensite/tensite.txt", "C:/D/NLPIR/paper/files/merge/tensite/tensiteSeg.txt", 0);
-			Double d = instance.NLPIR_FileProcess("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensite.txt", "C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteSeg.txt", 0);
+			Double d = instance.NLPIR_FileProcess("E:/NLPIR/sougou/bigfile/vec/bigfilestopWordsRemoved.txt", "E:/NLPIR/sougou/bigfile/vec/bigfilestopWordsRemoved_Seg.txt", 0);
+//			Double d = instance.NLPIR_FileProcess("E:/NLPIR/sougou/bigfile/test/3stopWordsRemoved.txt", "E:/NLPIR/sougou/bigfile/test/3stopWordsRemoved_Seg.txt", 0);
 
 			System.out.println("对文件内容进行分词的运行速度为： ");
 			if (d.isInfinite())

@@ -19,10 +19,10 @@ public class Normalize {
 	public static void main(String[] args) throws Exception {
 		System.out.println("start");
 		long start = System.currentTimeMillis();
-		Process("C:/D/NLPIR/paper/files/merge/tensite/tensiteSeg");
+		Process("E:/NLPIR/sougou/bigfile/vec/bigfile");
 		System.out.println((System.currentTimeMillis() - start) / 60000.0);
 		
-		Process("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteSeg");
+//		Process("C:/D/NLPIR/paper/files/merge/sohusite_tensite/sohusite_tensiteSeg");
 		System.out.println("end");
 		System.out.println((System.currentTimeMillis() - start) / 60000.0);
 	}

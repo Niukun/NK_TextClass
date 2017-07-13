@@ -13,7 +13,7 @@ import java.util.TreeSet;
 public class countFileWords {
 
 	public static void main(String[] args) {
-		int num = countFileWords("D:/NLPIR/sougou/big/0214/", "0214_sougou_bigfileNormalizeSegment");
+		int num = countFileWords("E:/NLPIR/sougou/bigfile/", "bigfilestopWordsRemoved");
 		System.out.println("num:" + num);
 	}
 	/**

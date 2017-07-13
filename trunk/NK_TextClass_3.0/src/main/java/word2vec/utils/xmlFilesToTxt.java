@@ -56,12 +56,12 @@ public class xmlFilesToTxt {
 	
 	public static void main(String[] args) throws IOException, DocumentException {
 		System.out.println("code start...");
-//		getFormatedData(news_sohusite_xml_strPath);
-//		getFormatedData(news_tensite_xml_strPath);
+		getFormatedData(news_sohusite_xml_strPath);
+		getFormatedData(news_tensite_xml_strPath);
 		
 		//得到各个分类网站名称并且提取含有配置文件url的文档内容
-//		getAllSURLS(news_tensite_xml_strPath);
-//		getAllSURLS(news_sohusite_xml_strPath);
+//		getAllSURLs(news_tensite_xml_strPath);
+//		getAllSURLs(news_sohusite_xml_strPath);
 		
 		
 		classbufw = new BufferedWriter(new FileWriter(new File(news_tensite_xml_strPath + "/xml/"+fileClass+"/classes.txt")));

@@ -28,7 +28,9 @@ public class mergeFileUtils {
 //		filetoOne(new File("E:/NLPIR/sougou/news_sohusite_xml/xml/full"));
 //		filetoOne(new File("E:/NLPIR/sougou/news_tensite_xml/xml/full"));
 //		filetoOne(new File("C:/D/NLPIR/paper/files/merge/sohusite_tensite"));
-		filetoOne(new File("C:/D/NLPIR/paper/files/merge/clean3.0"));
+//		filetoOne(new File("E:/NLPIR/sougou/news_tensite_xml/xml/full"));
+//		filetoOne(new File("E:/NLPIR/sougou/news_sohusite_xml/xml/full"));
+		filetoOne(new File("E:/NLPIR/sougou/bigfile"));
 		System.out.println("end");
 	}
 

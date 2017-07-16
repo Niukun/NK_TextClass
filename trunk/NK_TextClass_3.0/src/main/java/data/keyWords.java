@@ -43,9 +43,9 @@ public class keyWords {
 
 	static {
 		List<String> dataPaths = new ArrayList<String>();
-//		dataPaths.add("C:/D/NLPIR/paper/files/testnum/seg/Normalize/");
-//		dataPaths.add("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/");
-		dataPaths.add("C:/D/NLPIR/paper/files/all/");
+//		dataPaths.add("e:/NLPIR/paper/files/testnum/seg/Normalize/");
+//		dataPaths.add("e:/NLPIR/paper/files/trainnum/seg/Normalize/");
+		dataPaths.add("E:/NLPIR/Database/alltrain/");
 		System.out.println("get allDocuments...");
 		try {
 			//在类加载的时候读取文件集合
@@ -64,7 +64,7 @@ public class keyWords {
 	 */
 	public keyWords() throws IOException {
 
-		bufwidf = new BufferedWriter(new FileWriter(new File("C:/D/NLPIR/paper/files/idf.txt")));
+		bufwidf = new BufferedWriter(new FileWriter(new File("e:/NLPIR/Database/idf.txt")));
 		
 		TfIdf tfIdf = new TfIdf(allDocuments);
 		idfmap = tfIdf.idf();
@@ -108,12 +108,12 @@ public class keyWords {
 
 	}
 
-	/*
+	/**
 	 * 对所有文件进行操作，得到排序的tfidf值，然后按照指定的数量存储到文件中
 	 * 
 	 */
 	private static void getSortedTFIDFAndSave(int wordsNum) throws IOException {
-		bufwtf = new BufferedWriter(new FileWriter(new File("C:/D/NLPIR/paper/files/tfidf.txt")));
+		bufwtf = new BufferedWriter(new FileWriter(new File("e:/NLPIR/Database/tfidf.txt")));
 		
 		TfIdf tfIdf = new TfIdf(allDocuments);
 
@@ -167,7 +167,7 @@ public class keyWords {
 	 * @throws IOException
 	 */
 	public static String[] getSortedKeyWords(String document, int wordsNum) throws IOException {
-		bufwtf = new BufferedWriter(new FileWriter(new File("C:/D/NLPIR/paper/files/keyWords.txt"),true));
+		bufwtf = new BufferedWriter(new FileWriter(new File("e:/NLPIR/Database/keyWords.txt"),true));
 		TfIdf tfIdf = new TfIdf(allDocuments);
 		String[] strs = new String[wordsNum];
 		tfmap = tfIdf.tf(document);//得到文档中每个词的tf值
@@ -221,7 +221,7 @@ public class keyWords {
 	 * 仅仅是保存文档，没什么技术含量、
 	 */
 	private static void saveDocs() throws IOException {
-		BufferedWriter bu = new BufferedWriter(new FileWriter(new File("C:/D/NLPIR/paper/files/doc.txt")));
+		BufferedWriter bu = new BufferedWriter(new FileWriter(new File("e:/NLPIR/Database/doc.txt")));
 		Iterator iter = allDocuments.iterator();
 		while (iter.hasNext()) {
 			bu.write((String) iter.next());

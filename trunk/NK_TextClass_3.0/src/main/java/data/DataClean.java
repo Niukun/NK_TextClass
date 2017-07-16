@@ -15,25 +15,25 @@ public class DataClean {
 	public static void main(String[] args) throws Exception {
 		System.out.println("start...");
 		System.out.println("test........................");
-		cleanCulture("C:/D/NLPIR/paper/files/test/culture/","C:/D/NLPIR/paper/files/testnum/culture/");
-		cleanEducation("C:/D/NLPIR/paper/files/test/education/","C:/D/NLPIR/paper/files/testnum/education/");
-		cleanEntertainment("C:/D/NLPIR/paper/files/test/entertainment/","C:/D/NLPIR/paper/files/testnum/entertainment/");
-		cleanHistory("C:/D/NLPIR/paper/files/test/history/","C:/D/NLPIR/paper/files/testnum/history/");
-		cleanIT("C:/D/NLPIR/paper/files/test/it/","C:/D/NLPIR/paper/files/testnum/it/");
-		cleanMilitary("C:/D/NLPIR/paper/files/test/military/","C:/D/NLPIR/paper/files/testnum/military/");
-		cleanReading("C:/D/NLPIR/paper/files/test/reading/","C:/D/NLPIR/paper/files/testnum/reading/");
-		cleanSocietylaw("C:/D/NLPIR/paper/files/test/society&law/","C:/D/NLPIR/paper/files/testnum/society&law/");
+		cleanCulture("E:/NLPIR/Database/test/culture/","E:/NLPIR/Database/testnum/culture/");
+		cleanEducation("E:/NLPIR/Database/test/education/","E:/NLPIR/Database/testnum/education/");
+		cleanEntertainment("E:/NLPIR/Database/test/entertainment/","E:/NLPIR/Database/testnum/entertainment/");
+		cleanHistory("E:/NLPIR/Database/test/history/","E:/NLPIR/Database/testnum/history/");
+		cleanIT("E:/NLPIR/Database/test/it/","E:/NLPIR/Database/testnum/it/");
+		cleanMilitary("E:/NLPIR/Database/test/military/","E:/NLPIR/Database/testnum/military/");
+		cleanReading("E:/NLPIR/Database/test/reading/","E:/NLPIR/Database/testnum/reading/");
+		cleanSocietylaw("E:/NLPIR/Database/test/society&law/","E:/NLPIR/Database/testnum/society&law/");
 		
 		System.out.println("train.......................");
 		
-		cleanCulture("C:/D/NLPIR/paper/files/train/culture/","C:/D/NLPIR/paper/files/trainnum/culture/");
-		cleanEducation("C:/D/NLPIR/paper/files/train/education/","C:/D/NLPIR/paper/files/trainnum/education/");
-		cleanEntertainment("C:/D/NLPIR/paper/files/train/entertainment/","C:/D/NLPIR/paper/files/trainnum/entertainment/");
-		cleanHistory("C:/D/NLPIR/paper/files/train/history/","C:/D/NLPIR/paper/files/trainnum/history/");
-		cleanIT("C:/D/NLPIR/paper/files/train/it/","C:/D/NLPIR/paper/files/trainnum/it/");
-		cleanMilitary("C:/D/NLPIR/paper/files/train/military/","C:/D/NLPIR/paper/files/trainnum/military/");
-		cleanReading("C:/D/NLPIR/paper/files/train/reading/","C:/D/NLPIR/paper/files/trainnum/reading/");
-		cleanSocietylaw("C:/D/NLPIR/paper/files/train/society&law/","C:/D/NLPIR/paper/files/trainnum/society&law/");
+		cleanCulture("E:/NLPIR/Database/train/culture/","E:/NLPIR/Database/trainnum/culture/");
+		cleanEducation("E:/NLPIR/Database/train/education/","E:/NLPIR/Database/trainnum/education/");
+		cleanEntertainment("E:/NLPIR/Database/train/entertainment/","E:/NLPIR/Database/trainnum/entertainment/");
+		cleanHistory("E:/NLPIR/Database/train/history/","E:/NLPIR/Database/trainnum/history/");
+		cleanIT("E:/NLPIR/Database/train/it/","E:/NLPIR/Database/trainnum/it/");
+		cleanMilitary("E:/NLPIR/Database/train/military/","E:/NLPIR/Database/trainnum/military/");
+		cleanReading("E:/NLPIR/Database/train/reading/","E:/NLPIR/Database/trainnum/reading/");
+		cleanSocietylaw("E:/NLPIR/Database/train/society&law/","E:/NLPIR/Database/trainnum/society&law/");
 	
 		System.out.println("end....");
 	}

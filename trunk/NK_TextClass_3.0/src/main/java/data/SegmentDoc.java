@@ -23,16 +23,16 @@ public class SegmentDoc {
 	public static void main(String[] args) {
 		
 		System.out.println("start...");
-//		segFile("C:/D/NLPIR/paper/files/testnum/");
-//		segFile("C:/D/NLPIR/paper/files/trainnum/");
+		segFile("E:/NLPIR/Database/testnum/");
+		segFile("E:/NLPIR/Database/trainnum/");
 		
 		
-		//mallet主题建模数据处理、
-		File file = new File("C:/D/mallet/classes/");
-		File[] files = file.listFiles();
-		for (int i = 0; i < files.length; i++) {
-			segFile(files[i].getAbsolutePath());
-		}
+//		//mallet主题建模数据处理、
+//		File file = new File("C:/D/mallet/classes/");
+//		File[] files = file.listFiles();
+//		for (int i = 0; i < files.length; i++) {
+//			segFile(files[i].getAbsolutePath());
+//		}
 		
 		instance.NLPIR_Exit();
 		System.out.println("end...");

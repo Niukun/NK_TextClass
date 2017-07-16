@@ -15,13 +15,13 @@ public class FileToLine {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println("Start...");
-		getClassFile("C:/D/NLPIR/paper/files/testnum/");
-		getClassFile("C:/D/NLPIR/paper/files/trainnum/");
+		getClassFile("E:/NLPIR/Database/testnum/");
+		getClassFile("E:/NLPIR/Database/trainnum/");
 		System.out.println("end...");
 
 	}
 	/**
-	 * 提取出改目录下所有的类别文件夹，然后以类别文件夹名称为名，以类别文件夹中的文件为行，在当前目录生成新的文件
+	 * 提取出该目录下所有的类别文件夹，然后以类别文件夹名称为名，以类别文件夹中的文件为行，在当前目录生成新的文件
 	 * @param dataPath
 	 * @throws IOException 
 	 */

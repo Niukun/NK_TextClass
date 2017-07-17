@@ -45,7 +45,7 @@ public class EntryOfTheCode2017 {
 	private static int noClass;//没有分类结果的个数
 	
 //	private static String vecFatherPath = "E:/NLPIR/merge/";
-	private static String vecFatherPath = "C:/D/NLPIR/paper/files/merge/";
+	private static String vecFatherPath = "E:/NLPIR/sougou/bigfile/sougou/vec/";
 	
 	static int[][] resultMatix;
 
@@ -54,8 +54,8 @@ public class EntryOfTheCode2017 {
 		// 分词模块初始化
 		int init_flag = instance.NLPIR_Init("", 1, "0");
 		try {
-			bufwResult = new BufferedWriter(new FileWriter(new File("c:/d/result.txt")));
-			bufwMatrixResult = new BufferedWriter(new FileWriter(new File("C:/D/MatrixResult.txt")));
+			bufwResult = new BufferedWriter(new FileWriter(new File("E:/NLPIR/sougou/result.txt")));
+			bufwMatrixResult = new BufferedWriter(new FileWriter(new File("E:/NLPIR/sougou/MatrixResult.txt")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -114,26 +114,26 @@ public class EntryOfTheCode2017 {
 //		TopMethod(5,"clean3.0/clean3.0_1000_1.txt");
 		
 		
-		TopMethod(1,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(2,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(3,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(4,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(5,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(6,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(7,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(8,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(9,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(10,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(11,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(12,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(13,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(14,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(15,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(16,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(17,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(18,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(19,"clean3.0/clean3.0_200_1.txt");
-		TopMethod(20,"clean3.0/clean3.0_200_1.txt");
+		TopMethod(1,"bigfile_Vector200.txt");
+		TopMethod(2,"bigfile_Vector200.txt");
+		TopMethod(3,"bigfile_Vector200.txt");
+		TopMethod(4,"bigfile_Vector200.txt");
+		TopMethod(5,"bigfile_Vector200.txt");
+		TopMethod(6,"bigfile_Vector200.txt");
+		TopMethod(7,"bigfile_Vector200.txt");
+		TopMethod(8,"bigfile_Vector200.txt");
+		TopMethod(9,"bigfile_Vector200.txt");
+		TopMethod(10,"bigfile_Vector200.txt");
+		TopMethod(11,"bigfile_Vector200.txt");
+		TopMethod(12,"bigfile_Vector200.txt");
+		TopMethod(13,"bigfile_Vector200.txt");
+		TopMethod(14,"bigfile_Vector200.txt");
+		TopMethod(15,"bigfile_Vector200.txt");
+		TopMethod(16,"bigfile_Vector200.txt");
+		TopMethod(17,"bigfile_Vector200.txt");
+		TopMethod(18,"bigfile_Vector200.txt");
+		TopMethod(19,"bigfile_Vector200.txt");
+		TopMethod(20,"bigfile_Vector200.txt");
 		
 		
 		
@@ -240,20 +240,20 @@ public class EntryOfTheCode2017 {
 //				(getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[0], keyWordsNum) * 100)
 //				+ "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/entertainment500.txt", WordUtil.classes[0], keyWordsNum) * 100)
+				(getCorrectNum("e:/NLPIR/Database/alltest/entertainment200.txt", WordUtil.classes[0], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/military500.txt", WordUtil.classes[1], keyWordsNum) * 100)
+				(getCorrectNum("e:/NLPIR/Database/alltest/military200.txt", WordUtil.classes[1], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
-		System.out.println(
-				(getCorrectNum("C:/D/NLPIR/paper/files/all/society&law500.txt", WordUtil.classes[2], keyWordsNum) * 100)
-						+ "%");
+//		System.out.println(
+//				(getCorrectNum("e:/NLPIR/Database/alltest/society&law200.txt", WordUtil.classes[2], keyWordsNum) * 100)
+//						+ "%");
 
 	}
 

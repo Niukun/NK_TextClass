@@ -46,6 +46,7 @@ public class keyWords {
 //		dataPaths.add("e:/NLPIR/paper/files/testnum/seg/Normalize/");
 //		dataPaths.add("e:/NLPIR/paper/files/trainnum/seg/Normalize/");
 		dataPaths.add("E:/NLPIR/Database/alltrain/");
+		dataPaths.add("E:/NLPIR/Database/alltrain/alltest");
 		System.out.println("get allDocuments...");
 		try {
 			//在类加载的时候读取文件集合

@@ -240,13 +240,13 @@ public class EntryOfTheCode2017 {
 //				(getCorrectNum("C:/D/NLPIR/paper/files/all/it.txt", WordUtil.classes[0], keyWordsNum) * 100)
 //				+ "%");
 		System.out.println(
-				(getCorrectNum("e:/NLPIR/Database/alltest/entertainment200.txt", WordUtil.classes[0], keyWordsNum) * 100)
+				(getCorrectNum("F:/论文/研究生论文/毕业论文/D/D/NLPIR/paper/files/all/entertainment500.txt", WordUtil.classes[0], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/history.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
 		// + "%");
 		System.out.println(
-				(getCorrectNum("e:/NLPIR/Database/alltest/military200.txt", WordUtil.classes[1], keyWordsNum) * 100)
+				(getCorrectNum("F:/论文/研究生论文/毕业论文/D/D/NLPIR/paper/files/all/military500.txt", WordUtil.classes[1], keyWordsNum) * 100)
 						+ "%");
 		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/all/reading.txt",
 		// WordUtil.classes[1], keyWordsNum) * 100)
@@ -255,57 +255,6 @@ public class EntryOfTheCode2017 {
 //				(getCorrectNum("e:/NLPIR/Database/alltest/society&law200.txt", WordUtil.classes[2], keyWordsNum) * 100)
 //						+ "%");
 
-	}
-
-	private static void test(int keyWordsNum) throws Exception {
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/culture.txt",
-				WordUtil.classes[0], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/history.txt",
-				WordUtil.classes[1], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/military.txt",
-				WordUtil.classes[2], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/reading.txt",
-				WordUtil.classes[3], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/testnum/seg/Normalize/society&law.txt",
-				WordUtil.classes[4], keyWordsNum) * 100) + "%");
-
-	}
-
-	public static void train(int keyWordsNum) throws Exception {
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt",
-				WordUtil.classes[0], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",
-				WordUtil.classes[1], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/military.txt",
-				WordUtil.classes[2], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/reading.txt",
-				WordUtil.classes[3], keyWordsNum) * 100) + "%");
-		System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/society&law.txt",
-				WordUtil.classes[4], keyWordsNum) * 100) + "%");
-
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/culture.txt",
-		// WordUtil.classes[0], keyWordsNum) * 100)
-		// + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/education.txt",
-		// WordUtil.classes[1], keyWordsNum) * 100)
-		// + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/entertainment.txt",
-		// WordUtil.classes[2], keyWordsNum)* 100)
-		// + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/history.txt",WordUtil.classes[3],
-		// keyWordsNum) * 100)
-		// + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/it.txt",
-		// WordUtil.classes[4], keyWordsNum) * 100) + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/military.txt",
-		// WordUtil.classes[5], keyWordsNum) * 100)
-		// + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/reading.txt",
-		// WordUtil.classes[6], keyWordsNum) * 100)
-		// + "%");
-		// System.out.println((getCorrectNum("C:/D/NLPIR/paper/files/trainnum/seg/Normalize/society&law.txt",
-		// WordUtil.classes[7], keyWordsNum) * 100)
-		// + "%");
 	}
 
 	public static double getCorrectNum(String fileAbsulotePath, String className, int keyNum) throws Exception {
